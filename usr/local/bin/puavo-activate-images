@@ -1,5 +1,13 @@
 #!/bin/sh
 
+for N in $(ls /opt/ltsp/images/downloads/); do
+  echo $N
+  if ! test -e /opt/ltsp/images/$N; then
+      echo "---> make hard link: $N"
+      ln /opt/ltsp/images/downloads/$N /opt/ltsp/images/$N
+  fi
+done
+
 puavo-bootserver-generate-nbd-exports
 puavo-bootserver-update-tftpboot
 
