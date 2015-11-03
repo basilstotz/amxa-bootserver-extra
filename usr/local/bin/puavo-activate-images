@@ -1,0 +1,8 @@
+#!/bin/sh
+
+puavo-bootserver-generate-nbd-exports
+puavo-bootserver-update-tftpboot
+
+puavo-images-mkcksums
+
+exit

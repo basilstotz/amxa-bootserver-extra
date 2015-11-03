@@ -1,0 +1,42 @@
+#!/bin/sh
+
+output_config() {
+    echo "graph_title Puavo Clients"
+    echo "nbd.label NBD"
+    echo "nfs.label NFS"
+    echo "smb.label SMB"
+}
+
+output_values() {
+
+    printf "nbd.value %d\n" $(puavo-bootserver-list-clients|grep NBD|wc -l)
+    printf "nfs.value %d\n" $(puavo-bootserver-list-clients|grep NFS|wc -l)
+    printf "smb.value %d\n" $(puavo-bootserver-list-clients|grep SMB|wc -l)
+}
+
+
+output_usage() {
+    printf >&2 "%s - munin plugin to graph Puavo clients\n" ${0##*/}
+    printf >&2 "Usage: %s [config]\n" ${0##*/}
+}
+
+case $# in
+    0)
+        output_values
+        ;;
+    1)
+        case $1 in
+            config)
+                output_config
+                ;;
+            *)
+                output_usage
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        output_usage
+        exit 1
+        ;;
+esac

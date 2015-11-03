@@ -1,0 +1,10 @@
+#!/bin/sh
+
+date >>/var/log/puavo-log-sessions
+
+/usr/sbin/puavo-bootserver-last-user-sessions -n 120 >>/var/log/puavo-log-sessions
+
+echo >>/var/log/puavo-log-sessions
+echo >>/var/log/puavo-log-sessions
+
+exit
