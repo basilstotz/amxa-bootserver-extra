@@ -10,7 +10,8 @@ ID="/root/yourfilehere"
 #fi
 #touch /tmp/amxa-sync
 
-rm /opt/ltsp/images/rdiffs/*
+find /opt/ltsp/images/rdiffs/ -name ".rdiff" -exec rm \{\} \;
+
 
 cd $DST
 
@@ -26,6 +27,8 @@ for N in $(wget -O - http://images.amxa.ch/content.html - 2>/dev/null |grep "lts
       touch "$NN.ok"
       rm $NN.zs-old
     fi
+  else
+    echo "image is synced"
   fi
 done
 
