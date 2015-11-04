@@ -4,19 +4,38 @@ DST="/opt/ltsp/images/downloads/"
 SRC="/home/images/"
 ID="/root/yourfilehere"
 
-if test -e /tmp/amxa-sync; then 
-   echo "allready running. exiting..."
-   exit; 
-fi
-touch /tmp/amxa-sync
+#if test -e /tmp/amxa-sync; then 
+#   echo "allready running. exiting..."
+#   exit; 
+#fi
+#touch /tmp/amxa-sync
 
-rm /opt/ltsp/images/rdiffs/*
+echo "rm /opt/ltsp/images/rdiffs/*"
 
-while ! rsync -r -v -P --bwlimit 1024 --delete -e "ssh -i $ID" root@hadar.amxa.ch:$SRC $DST; do
-  sleep 1200
+cd $DST
+
+#for N in $(ssh -i $ID -p 443 root@hadar.amxa.ch ls /home/images/ltsp-amxa-*-i386.img); do
+for N in $(wget -O - http://images.amxa.ch/content.html - 2>/dev/null |grep "ltsp-amxa-.*-i386.img$"); do
+  NN=$(basename $N)
+  echo "       $NN"
+  if ! test -e "$NN.ok"; then
+#  if true; then
+    LATEST=$(ls -tr ltsp-amxa-*-i386.img|head -n1)
+    #echo "cp $LATEST $NN"
+    # cp $LATEST $NN
+    echo "zsync -i $LATEST http://images.amxa.ch/$NN.zsync"
+    if zsync -i $LATEST http://images.amxa.ch/$NN.zsync; then 
+      touch "$NN.ok"
+    fi
+  fi
 done
 
-rm /tmp/amxa-sync
+
+#while ! rsync -r -v -P --bwlimit 300 --delete -e "ssh -p 443 -i $ID" root@hadar.amxa.ch:$SRC $DST; do
+#  sleep 1200
+#done
+
+#rm /tmp/amxa-sync
 
 exit
 
