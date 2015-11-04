@@ -10,7 +10,7 @@ ID="/root/yourfilehere"
 #fi
 #touch /tmp/amxa-sync
 
-echo "rm /opt/ltsp/images/rdiffs/*"
+rm /opt/ltsp/images/rdiffs/*
 
 cd $DST
 
@@ -20,9 +20,7 @@ for N in $(wget -O - http://images.amxa.ch/content.html - 2>/dev/null |grep "lts
   echo "       $NN"
   if ! test -e "$NN.ok"; then
 #  if true; then
-    LATEST=$(ls -tr ltsp-amxa-*-i386.img|head -n1)
-    #echo "cp $LATEST $NN"
-    # cp $LATEST $NN
+    LATEST=$(ls -t ltsp-amxa-*-i386.img|head -n1)
     echo "zsync -i $LATEST http://images.amxa.ch/$NN.zsync"
     if zsync -i $LATEST http://images.amxa.ch/$NN.zsync; then 
       touch "$NN.ok"
