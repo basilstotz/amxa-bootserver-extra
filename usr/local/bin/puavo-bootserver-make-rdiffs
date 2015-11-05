@@ -1,0 +1,53 @@
+#!/bin/sh
+
+
+get_rdiff_filename() {
+  previous_image_name=$1
+  next_image_name=$2
+
+  echo "$previous_image_name $next_image_name" \
+    | awk '
+        NR == 1 {
+	  orig   = $1
+	  target = $2
+	  regex  = "^(.*?)-([0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6})-(.*?).img$"
+     
+	  if (match(orig, regex, orig_match) \
+	    && match(target, regex, target_match)) {
+	      printf("%s-%s--%s-%s.rdiff\n",
+		     orig_match[1],
+		     orig_match[2],
+		     target_match[2],
+		     orig_match[3])
+	      exit(0)
+	  }
+	  else { exit(1) }
+	}
+      '
+}
+
+cd /opt/ltsp/images/
+
+if ! test -d rdiffs; then
+  mkdir rdiffs
+fi
+
+PREV=""
+for N in $(ls -tr ltsp-amxa-*-i386.img); do
+  if test -z "$PREV"; then 
+    PREV=$N
+  else
+    RDIFF=$(get_rdiff_filename $PREV $N)
+    echo $RDIFF
+    if ! test -e rdiffs/$RDIFF; then
+      if ! test -e $PREV.sig; then
+         rdiff signature $PREV $PREV.sig
+      fi
+      rdiff delta $PREV.sig $N rdiffs/$RDIFF
+    fi
+    PREV=$N
+  fi
+done
+
+
+
