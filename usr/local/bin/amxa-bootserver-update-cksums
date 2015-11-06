@@ -1,0 +1,32 @@
+#!/bin/sh
+
+cd /opt/ltsp/images/
+
+#if test -e CKSUMS; then rm  CKSUMS;fi
+#touch CKSUMS
+
+touch CKSUMS
+
+CKS=$(cat CKSUMS);
+
+for N in $(ls ltsp-amxa*img); do
+ echo $N
+ if echo $CKS| grep  $N; then
+    echo "ok"
+ else
+    cksum $N >>CKSUMS
+    CKS=$(cat CKSUMS)
+ fi
+done
+
+for N in $(ls rdiffs/*rdiff); do
+ echo $N
+ if echo $CKS| grep  $N; then
+    echo "ok"
+ else
+    cksum $N >>CKSUMS
+    CKS=$(cat CKSUMS)
+ fi
+done
+
+exit
