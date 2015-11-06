@@ -1,8 +1,0 @@
-#!/bin/sh
-
-YESTERDAY=$(date -d yesterday +%F)
-
-COUNT=$(/usr/sbin/puavo-bootserver-last-user-sessions -n 100|grep $YESTERDAY|wc -l)
-
-echo $YESTERDAY $COUNT
-
