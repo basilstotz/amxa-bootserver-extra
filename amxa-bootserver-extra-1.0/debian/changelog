@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu9) precise; urgency=low
+
+   * 
+
+ -- root <root@bootserver.ksnuwi.opinsys.fi>  Fri, 06 Nov 2015 15:44:51 +0100
+
 amxa-bootserver-extra (1.0-1ubuntu8) precise; urgency=low
 
   * 
@@ -20,6 +26,7 @@ amxa-bootserver-extra (1.0-1ubuntu7) UNRELEASED; urgency=medium
 
   * fixed path
   * new: rsyncd.conf, ushare.conf, amxa-archive.list
+     new build
 
  -- Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>  Fri, 06 Nov 2015 14:53:41 +0100
 

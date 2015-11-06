@@ -32,6 +32,8 @@ for N in $(wget -O - http://images.amxa.ch/content.html - 2>/dev/null |grep "lts
   fi
 done
 
+amxa-bootserver-update-rdiffs
+amxa-bootserver-update-cksums
 
 #while ! rsync -r -v -P --bwlimit 300 --delete -e "ssh -p 443 -i $ID" root@hadar.amxa.ch:$SRC $DST; do
 #  sleep 1200

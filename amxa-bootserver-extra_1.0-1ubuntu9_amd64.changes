@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 Nov 2015 15:44:51 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu9
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.ksnuwi.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu9) precise; urgency=low
+ .
+    *
+Checksums-Sha1: 
+ c7a9b91b59003f38e20e7256cb9cfc477153a6cd 650 amxa-bootserver-extra_1.0-1ubuntu9.dsc
+ 89727f9c209a6858b1e884aaf088c9769a1d8b14 13520 amxa-bootserver-extra_1.0-1ubuntu9.tar.gz
+ a251bcfb0fc62d0371ca900344f92972c06ff471 5136 amxa-bootserver-extra_1.0-1ubuntu9_all.deb
+Checksums-Sha256: 
+ 1f05f86c08f00a2c0e57d9752dc7006a4bc512305b0d16ad0c8ba2cc07f4c938 650 amxa-bootserver-extra_1.0-1ubuntu9.dsc
+ 54327a2f0f21269b58e08204086c27fcf05ef3604d7f39e6c56aca668677a79b 13520 amxa-bootserver-extra_1.0-1ubuntu9.tar.gz
+ 771f878b8a96687661cb068183fb8c09e849b650b21de56372222f3ca7651fa8 5136 amxa-bootserver-extra_1.0-1ubuntu9_all.deb
+Files: 
+ 48c3bcc14e9f7f195f5e2a7d13293705 650 system optional amxa-bootserver-extra_1.0-1ubuntu9.dsc
+ 5a2a7d39e0ea0f4e8b2b26be837734de 13520 system optional amxa-bootserver-extra_1.0-1ubuntu9.tar.gz
+ b02783ffe0a372d07972fd2b5ad869dc 5136 system optional amxa-bootserver-extra_1.0-1ubuntu9_all.deb
