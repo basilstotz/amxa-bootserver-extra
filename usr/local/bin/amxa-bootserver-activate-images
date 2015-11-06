@@ -1,6 +1,7 @@
 #!/bin/sh
 
-for N in $(ls /opt/ltsp/images/downloads/ltsp-amxa-*-i386.img); do
+#for N in $(ls /opt/ltsp/images/downloads/ltsp-amxa-*-i386.img); do
+for N in ""; do
   NN=$(basename $N)
 #  echo $N
   if test -e /opt/ltsp/images/downloads/$NN.ok; then
