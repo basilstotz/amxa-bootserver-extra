@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 Nov 2015 15:38:32 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu8
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.ksnuwi.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu8) precise; urgency=low
+ .
+   *
+Checksums-Sha1: 
+ a67db4b39f2aa0651dc7fb0df0e7f9066e0d269a 650 amxa-bootserver-extra_1.0-1ubuntu8.dsc
+ e64925aa4604915b9ce0b49bad9cb8f4b35e759a 13526 amxa-bootserver-extra_1.0-1ubuntu8.tar.gz
+ 1a61af56d6fed39905a766affeb133e1fa6d2368 5100 amxa-bootserver-extra_1.0-1ubuntu8_all.deb
+Checksums-Sha256: 
+ 84fe51ffe172a17eccb2e29f595cc2099ce50bf5e46907b63d16985c1a27884a 650 amxa-bootserver-extra_1.0-1ubuntu8.dsc
+ deb2897f9c25f54654b1812d7fa0e1aa23ea8450a0fe5b90c7df4a0a0b815599 13526 amxa-bootserver-extra_1.0-1ubuntu8.tar.gz
+ 2eb4534350041035971670337688a2f71a78c763da82b7c664ab4773f9c01997 5100 amxa-bootserver-extra_1.0-1ubuntu8_all.deb
+Files: 
+ 31db0cf16c68c40ea693060e82c3a379 650 system optional amxa-bootserver-extra_1.0-1ubuntu8.dsc
+ 87ee37657f4ec9345c6301522993028c 13526 system optional amxa-bootserver-extra_1.0-1ubuntu8.tar.gz
+ 826310cbfbd6825886a8c4d8cfe09580 5100 system optional amxa-bootserver-extra_1.0-1ubuntu8_all.deb
