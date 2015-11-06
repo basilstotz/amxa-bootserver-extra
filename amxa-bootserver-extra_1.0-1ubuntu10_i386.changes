@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 Nov 2015 16:10:36 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu10
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu10) UNRELEASED; urgency=medium
+ .
+   *
+Checksums-Sha1: 
+ 685f66e3fd4a2badd9f42f8bf9c34ffc24d104b6 654 amxa-bootserver-extra_1.0-1ubuntu10.dsc
+ 87e229646da597500a8d8aa352f7430e0de765dd 13087 amxa-bootserver-extra_1.0-1ubuntu10.tar.gz
+ e6690d024f170cdb14e00dde570ba827b176582c 4130 amxa-bootserver-extra_1.0-1ubuntu10_all.deb
+Checksums-Sha256: 
+ ef12e658cf3da6e9585ad9d3a3e84191f14cd15ddac3b7dc29ba7db65fb1f6b5 654 amxa-bootserver-extra_1.0-1ubuntu10.dsc
+ ea67e116664d4f83ef28fc3a08391d5f78907bb70e94a44cc97b4968625d6cda 13087 amxa-bootserver-extra_1.0-1ubuntu10.tar.gz
+ 7e6ddf43d33e292d9b8192ee7fcaa6be65acf1ee2e2a4440a431bead6ac77ffc 4130 amxa-bootserver-extra_1.0-1ubuntu10_all.deb
+Files: 
+ 7bd1ace84836b8959b420b02c6d76150 654 system optional amxa-bootserver-extra_1.0-1ubuntu10.dsc
+ 48b05dd0e10eacec8b7e6ec79e60c717 13087 system optional amxa-bootserver-extra_1.0-1ubuntu10.tar.gz
+ 6acd3599ee434a7ea4eb4ffb8768653f 4130 system optional amxa-bootserver-extra_1.0-1ubuntu10_all.deb
