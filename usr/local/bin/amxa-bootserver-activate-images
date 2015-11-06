@@ -1,0 +1,20 @@
+#!/bin/sh
+
+for N in $(ls /opt/ltsp/images/downloads/ltsp-amxa-*-i386.img); do
+  NN=$(basename $N)
+#  echo $N
+  if test -e /opt/ltsp/images/downloads/$NN.ok; then
+      if ! test -e /opt/ltsp/images/$NN; then
+         echo "---> activating image: $NN"
+         ln /opt/ltsp/images/downloads/$NN /opt/ltsp/images/$NN
+     else
+         echo "---> was activated: $NN"
+     fi
+  fi
+done
+
+puavo-bootserver-generate-nbd-exports
+puavo-bootserver-update-tftpboot
+
+
+exit
