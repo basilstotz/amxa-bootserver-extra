@@ -1,0 +1,35 @@
+Format: 1.8
+Date: Fri, 06 Nov 2015 14:26:25 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu5
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@alle-lap-001.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu5) UNRELEASED; urgency=medium
+ .
+   [ Stotz Basil ]
+   * initial version
+ .
+   [ root ]
+   * next try
+   * next try
+   * next try
+   * next try
+Checksums-Sha1: 
+ a2c750f38bd853b304b0b30ab0bff916d1fdc4c4 650 amxa-bootserver-extra_1.0-1ubuntu5.dsc
+ ac4cfbd4048cc2f11392a5b19ea3d06935a3a6e7 13021 amxa-bootserver-extra_1.0-1ubuntu5.tar.gz
+ a1e4f76828aead4fed8cd97d32624edd44301e12 3694 amxa-bootserver-extra_1.0-1ubuntu5_all.deb
+Checksums-Sha256: 
+ aac79e0b413f4c992c6e2a97e54ceb6f24cc1c27a36972166316259bacf0aef3 650 amxa-bootserver-extra_1.0-1ubuntu5.dsc
+ 959a9f82943c93058eec0e908e06a42f92df6d40a61e6afce72e56c687e23f16 13021 amxa-bootserver-extra_1.0-1ubuntu5.tar.gz
+ 85ac434566b45caa38a20bf5f0e6acb532f0af097e96d074a3986b758ba5f830 3694 amxa-bootserver-extra_1.0-1ubuntu5_all.deb
+Files: 
+ b1c8af83a5df0de2f6444823c02971ea 650 system optional amxa-bootserver-extra_1.0-1ubuntu5.dsc
+ 21309e2da45e571106151a5ea460fd06 13021 system optional amxa-bootserver-extra_1.0-1ubuntu5.tar.gz
+ 825cbe09ef8e9c066008f03cc6747a2c 3694 system optional amxa-bootserver-extra_1.0-1ubuntu5_all.deb

@@ -1,7 +1,6 @@
 #!/bin/sh
 
 
-get_rdiff_filename() {
   previous_image_name=$1
   next_image_name=$2
 
@@ -24,29 +23,6 @@ get_rdiff_filename() {
 	  else { exit(1) }
 	}
       '
-}
 
-
-if ! test -d rdiffs; then
-  mkdir rdiffs
-fi
-
-PREV=""
-for N in $(ls -tr ltsp-amxa-*-i386.img); do
-  if test -z "$PREV"; then 
-    PREV=$N
-  else
-    RDIFF=$(get_rdiff_filename $PREV $N)
-    echo $RDIFF
-    if ! test -e rdiffs/$RDIFF; then
-      if ! test -e $PREV.sig; then
-         rdiff signature $PREV $PREV.sig
-      fi
-      rdiff delta $PREV.sig $N rdiffs/$RDIFF
-    fi
-    PREV=$N
-  fi
-done
-
-
+exit
 
