@@ -2,31 +2,33 @@
 
 cd /opt/ltsp/images/
 
-#if test -e CKSUMS; then rm  CKSUMS;fi
-#touch CKSUMS
-
+if test -e CKSUMS; then rm  CKSUMS;fi
 touch CKSUMS
 
-CKS=$(cat CKSUMS);
+
 
 for N in $(ls ltsp-amxa*img); do
- echo $N
- if echo $CKS| grep  $N; then
-    echo "ok"
- else
-    cksum $N >>CKSUMS
-    CKS=$(cat CKSUMS)
- fi
+  echo $N
+  if ! test -e $N.chsum; then
+    echo "rsnc"
+    if ! rsync -v -p -e "ssh -i /root/yourfilehere -p443" root@hadar.amxa.ch:/home/images/www/$N.cksum .; then
+        echo "cksum"
+        cksum $N > $N.cksum
+    fi
+  fi
+  cat $N.cksum >> CKSUMS  
 done
 
 for N in $(ls rdiffs/*rdiff); do
- echo $N
- if echo $CKS| grep  $N; then
-    echo "ok"
- else
-    cksum $N >>CKSUMS
-    CKS=$(cat CKSUMS)
- fi
+  echo $N
+  if ! test -e $N.cksum; then
+       echo "rsync"
+       if ! rsync -v -p -e "ssh -i /root/yourfilehere -p443" root@hadar.amxa.ch:/home/images/www/$N.cksum $N.cksum; then
+	   echo "cksum"
+           cksum $N > $N.cksum
+       fi
+  fi
+  cat $N.cksum >> CKSUMS  
 done
 
 exit

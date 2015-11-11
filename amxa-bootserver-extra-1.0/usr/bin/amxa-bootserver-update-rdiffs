@@ -1,31 +1,6 @@
 #!/bin/sh
 
 
-get_rdiff_filename() {
-  previous_image_name=$1
-  next_image_name=$2
-
-  echo "$previous_image_name $next_image_name" \
-    | awk '
-        NR == 1 {
-	  orig   = $1
-	  target = $2
-	  regex  = "^(.*?)-([0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{6})-(.*?).img$"
-     
-	  if (match(orig, regex, orig_match) \
-	    && match(target, regex, target_match)) {
-	      printf("%s-%s--%s-%s.rdiff\n",
-		     orig_match[1],
-		     orig_match[2],
-		     target_match[2],
-		     orig_match[3])
-	      exit(0)
-	  }
-	  else { exit(1) }
-	}
-      '
-}
-
 cd /opt/ltsp/images/
 
 
@@ -48,12 +23,19 @@ for N in $(ls ltsp-amxa-*-i386.img); do
      RDIFF="${PRE}-${FIRST}--${SECOND}-${POST}"
 #    RDIFF=$(get_rdiff_filename $PREV $N)
     echo "fertig"
-    echo "*$RDIFF*"                            
+    echo "*$RDIFF*"
+    rsync -e "ssh -i /root/yourfilehere -p 443" root@hadar.amxa.ch:/home/images/www/rdiffs/$RDIFF* rdiffs/.                            
     if ! test -e rdiffs/$RDIFF; then
       if ! test -e $PREV.sig; then
+         echo "rdiff signature $PREV $PREV.sig"
          rdiff signature $PREV $PREV.sig
       fi 
+      echo "rdiff delta $PREV.sig $N rdiffs/$RDIFF"
       rdiff delta $PREV.sig $N rdiffs/$RDIFF
+    fi
+    if ! test -e rdiffs/$RDIFF.cksum; then
+       echo "cksum rdiffs/$RDIFF >rdiffs/$RDIV.cksum"
+       cksum rdiffs/$RDIFF >rdiffs/$RDIV.cksum
     fi
     PREV=$N
   fi

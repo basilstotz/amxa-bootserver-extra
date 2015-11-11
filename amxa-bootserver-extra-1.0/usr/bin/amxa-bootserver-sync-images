@@ -25,7 +25,7 @@ for N in $(wget -O - http://images.amxa.ch/content.html - 2>/dev/null |grep "lts
     echo "zsync -i $LATEST http://images.amxa.ch/$NN.zsync"
     if zsync -i $LATEST http://images.amxa.ch/$NN.zsync; then 
       touch "$NN.ok"
-      rm $NN.zs-old
+      if test -e $NN.zs-old; then rm $NN.zs-old;fi
     fi
   else
     echo "image is synced"
@@ -34,6 +34,8 @@ done
 
 amxa-bootserver-update-rdiffs
 amxa-bootserver-update-cksums
+
+
 
 #while ! rsync -r -v -P --bwlimit 300 --delete -e "ssh -p 443 -i $ID" root@hadar.amxa.ch:$SRC $DST; do
 #  sleep 1200
