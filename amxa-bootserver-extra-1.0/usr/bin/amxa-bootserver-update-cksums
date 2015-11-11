@@ -13,7 +13,10 @@ for N in $(ls ltsp-amxa*img); do
     echo "rsnc"
     if ! rsync -v -p -e "ssh -i /root/yourfilehere -p443" root@hadar.amxa.ch:/home/images/www/$N.cksum .; then
         echo "cksum"
-        cksum $N > $N.cksum
+        cd $(dirname $N)
+        NN=$(basename $N)
+        cksum $nN > $Nn.cksum
+        cd 
     fi
   fi
   cat $N.cksum >> CKSUMS  
