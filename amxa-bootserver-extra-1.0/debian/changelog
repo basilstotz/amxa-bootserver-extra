@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu11) precise; urgency=low
+
+  * update
+
+ -- root <root@bootserver.basel.opinsys.fi>  Wed, 11 Nov 2015 18:37:04 +0100
+
 amxa-bootserver-extra (1.0-1ubuntu10) UNRELEASED; urgency=medium
 
   * 

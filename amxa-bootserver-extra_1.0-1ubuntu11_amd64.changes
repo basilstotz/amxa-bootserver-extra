@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 11 Nov 2015 18:37:04 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu11
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu11) precise; urgency=low
+ .
+   * update
+Checksums-Sha1: 
+ 1b800d7a7b7a3036c375f62ef8f9758797110ff6 654 amxa-bootserver-extra_1.0-1ubuntu11.dsc
+ ce1a491bb3868b784a567b6e28527949c9015c6c 12733 amxa-bootserver-extra_1.0-1ubuntu11.tar.gz
+ bf400dd6883b385d4dd3cf99712625a179f7d083 4246 amxa-bootserver-extra_1.0-1ubuntu11_all.deb
+Checksums-Sha256: 
+ e09fe47f120e12e4129309a6e1d753a6cd7873a76a5b8bfc3496c8e32533d091 654 amxa-bootserver-extra_1.0-1ubuntu11.dsc
+ bccacd3396b3ac9f95402376c29f8c69baaee50a31e1b0a683c0151d67d32bf7 12733 amxa-bootserver-extra_1.0-1ubuntu11.tar.gz
+ bf65d34542477b842f795acb2c880d9497e9f2a03018571de0afafc0554b3814 4246 amxa-bootserver-extra_1.0-1ubuntu11_all.deb
+Files: 
+ 903fa2c4da6575327e8aaffca5ebe059 654 system optional amxa-bootserver-extra_1.0-1ubuntu11.dsc
+ 8c227f6e2e598b56d0819b79330b3b54 12733 system optional amxa-bootserver-extra_1.0-1ubuntu11.tar.gz
+ de85f73749b6513b2c88fba40517c3e0 4246 system optional amxa-bootserver-extra_1.0-1ubuntu11_all.deb
