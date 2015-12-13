@@ -23,6 +23,7 @@ cd /opt/ltsp/images/
       if test -e $1.zs-old; then 
         rm $1.zs-old
       fi
+      amxa-generate-rdiff $LATEST $1 ./rdiffs
       amxa-generate-cksums
       exit 0
     fi

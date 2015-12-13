@@ -1,0 +1,36 @@
+Format: 1.8
+Date: Sun, 13 Dec 2015 20:59:49 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu20
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu20) UNRELEASED; urgency=medium
+ .
+   * new build
+   * fixed udate-cksums
+   * added download methods
+   * moved binaries to /usr/bin/
+   * again
+   * removed /usr/local/bin
+   * again
+   * again
+   * added amxa-generate-rdiff to zsync and rsync and http
+Checksums-Sha1: 
+ ab6471607194410ff1fe33b32cb0dd50bca61911 654 amxa-bootserver-extra_1.0-1ubuntu20.dsc
+ e2f28270b587823c73b011d4a7c0a632e5fc29d3 13923 amxa-bootserver-extra_1.0-1ubuntu20.tar.gz
+ 95fcceb0b6780882ebeee29e260817cee82aa26b 4922 amxa-bootserver-extra_1.0-1ubuntu20_all.deb
+Checksums-Sha256: 
+ b60ed0fcf81425f6499fa0de4c47711e1c6a386db27c3e71d1ef6d66304336b4 654 amxa-bootserver-extra_1.0-1ubuntu20.dsc
+ f684432641cd35bbb0fe9df3656f2b4e401f44c61fed7d3fd64ac47cad9f13ad 13923 amxa-bootserver-extra_1.0-1ubuntu20.tar.gz
+ 89c6a24c4481376a509e54e0122dd76001981225de238a4674606d08809c752f 4922 amxa-bootserver-extra_1.0-1ubuntu20_all.deb
+Files: 
+ d4ac3ea731b28ed828fec59f0635ac69 654 system optional amxa-bootserver-extra_1.0-1ubuntu20.dsc
+ 8b0390fa252f6938307bfde0a99a4a29 13923 system optional amxa-bootserver-extra_1.0-1ubuntu20.tar.gz
+ 5b25b611bdc71d543c4e22fe16dfe429 4922 system optional amxa-bootserver-extra_1.0-1ubuntu20_all.deb

@@ -6,7 +6,7 @@
     fi
 
 #exit
-
+cd /opt/ltsp/images/
 #get latest image name
     LATEST=$(ls -t ltsp-amxa*-i386.img|head -n1)
     if test -z "$LATEST"; then
@@ -26,8 +26,12 @@
     echo "rsync -P -e "ssh -i /root/yourfilehere -p443" root@hadar.amxa.ch:/home/images/www/$1 ."
     if rsync -P -e "ssh -i /root/yourfilehere -p443" root@hadar.amxa.ch:/home/images/www/$1 .; then 
       cksum $1 >$1.cksum
+      amxa-generate-rdiff $LATEST $1 ./rdiffs
+    else
+      exit 1
     fi
+    
 
+exit 0
 
-exit
 
