@@ -1,10 +1,13 @@
-amxa-bootserver-extra (1.0-1ubuntu14) UNRELEASED; urgency=medium
+amxa-bootserver-extra (1.0-1ubuntu17) UNRELEASED; urgency=medium
 
   * new build
   * fixed udate-cksums
   * added download methods
+  * moved binaries to /usr/bin/
+  * again
+  * removed /usr/local/bin
 
- -- Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>  Sun, 13 Dec 2015 19:48:54 +0100
+ -- Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>  Sun, 13 Dec 2015 19:57:51 +0100
 
 amxa-bootserver-extra (1.0-1ubuntu11) precise; urgency=low
 
