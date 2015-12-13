@@ -1,4 +1,4 @@
-amxa-bootserver-extra (1.0-1ubuntu21) UNRELEASED; urgency=medium
+amxa-bootserver-extra (1.0-1ubuntu22) UNRELEASED; urgency=medium
 
   * new build
   * fixed udate-cksums
@@ -10,8 +10,9 @@ amxa-bootserver-extra (1.0-1ubuntu21) UNRELEASED; urgency=medium
   * again
   * added amxa-generate-rdiff to zsync and rsync and http
   * removed zsync from amxa-download-image
+  * fixed amxa-download-image
 
- -- Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>  Sun, 13 Dec 2015 21:30:24 +0100
+ -- Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>  Sun, 13 Dec 2015 22:07:46 +0100
 
 amxa-bootserver-extra (1.0-1ubuntu11) precise; urgency=low
 

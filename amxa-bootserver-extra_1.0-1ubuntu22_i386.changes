@@ -1,0 +1,38 @@
+Format: 1.8
+Date: Sun, 13 Dec 2015 22:07:46 +0100
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu22
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: Stotz Basil <stotz.basil@alle-lap-001.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu22) UNRELEASED; urgency=medium
+ .
+   * new build
+   * fixed udate-cksums
+   * added download methods
+   * moved binaries to /usr/bin/
+   * again
+   * removed /usr/local/bin
+   * again
+   * again
+   * added amxa-generate-rdiff to zsync and rsync and http
+   * removed zsync from amxa-download-image
+   * fixed amxa-download-image
+Checksums-Sha1: 
+ 4c27387bfb7e032915f781406f3e8ee43537089d 654 amxa-bootserver-extra_1.0-1ubuntu22.dsc
+ 1fe0a41341092977a06708b3c19a15a7d681ab25 13821 amxa-bootserver-extra_1.0-1ubuntu22.tar.gz
+ 57a9081f9f3daee65e56969cb3c40b8830c68777 4958 amxa-bootserver-extra_1.0-1ubuntu22_all.deb
+Checksums-Sha256: 
+ 8a2f75a311abf41681c949d94e79ae73d766f505fc94d180abfe027775e8da17 654 amxa-bootserver-extra_1.0-1ubuntu22.dsc
+ 30a195dceead69917d764ef8acfe73dd0a7f8af9ef4262d66bfcd7d9b9874821 13821 amxa-bootserver-extra_1.0-1ubuntu22.tar.gz
+ 2de487db537bb467324db3c130c566cb99139b0b480c7cb04b3a5613b355164f 4958 amxa-bootserver-extra_1.0-1ubuntu22_all.deb
+Files: 
+ 30ec63c2e513d08c11a913d760f0e8ce 654 system optional amxa-bootserver-extra_1.0-1ubuntu22.dsc
+ 3d227919a11fd94053356fe7a09fb8a3 13821 system optional amxa-bootserver-extra_1.0-1ubuntu22.tar.gz
+ f39c396fb0a9d26d602c5d9d197db8f6 4958 system optional amxa-bootserver-extra_1.0-1ubuntu22_all.deb
