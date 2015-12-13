@@ -1,0 +1,41 @@
+#!/bin/sh
+
+PATTERN="ltsp-amxa*-i386.img"
+P="/opt/ltsp/images"
+
+    if test -z "$1"; then
+      echo "usage: $(basename $0) image.img"
+      exit 1
+    fi
+
+NEW=$( basename $1 )
+
+
+    for E_RD in $(ssh -p443 -i /root/yourfilehere root@hadar.amxa.ch ls -t /home/images/www/rdiffs/*rdiff); do
+       EXT_RD=$(basename $E_RD)
+       for L in $(ls -t $P/$PATTERN); do
+          LOC=$(basename $L)
+          RD=$(amxa-rdiff-filename $LOC $NEW)
+#          echo  "$LOC $NEW --> $RD:"     
+         if test "$EXT_RD" = "$RD"; then
+           echo "hit!"
+           scp -i /root/yourfilehere -P443 root@hadar.amxa.ch:/home/images/www/rdiffs/$EXT_RD $P/rdiffs/.
+           if ! scp  -i /root/yourfilehere -P443 root@hadar.amxa.ch:/home/images/www/rdiffs/$EXT_RD.cksum $P/rdiffs/.; then
+             cksum $P/rdiffs/$EXT_RD > $P/rdiffs/$EXT_RD.cksum
+           fi
+           rdiff patch $P/$LOC $P/rdiffs/$EXT_RD $P/$NEW
+           if ! scp -i /root/yourfilehere -P443 root@hadar.amxa.ch:/home/images/www/$NEW.cksum $P/. ; then
+             cksum $P/$NEW > $P/$NEW.cksum
+           fi
+           amxa-generate-cksums
+           exit 0
+         else
+           echo -n ""
+         fi
+       done
+    done 
+      
+
+    echo "error: no rdiff found"
+    exit 1
+

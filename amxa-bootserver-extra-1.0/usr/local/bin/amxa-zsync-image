@@ -1,0 +1,31 @@
+#!/bin/sh
+
+    if test -z "$1"; then
+      echo "usage: $(basename $0) image.img"
+      exit 1
+    fi
+
+#exit
+cd /opt/ltsp/images/
+#get latest image name
+    LATEST=$(ls -t ltsp-amxa*-i386.img|head -n1)
+    if test -z "$LATEST"; then
+      echo "no image found. Are you on the right place?"
+      exit 1
+    fi
+
+
+    echo "zsync -i $LATEST http://images.amxa.ch/$1.zsync"
+    if zsync -i $LATEST http://images.amxa.ch/$1.zsync; then
+      if ! wget http://images.amxa.ch/$1.cksum; then 
+        cksum $1 > $1.cksum
+      fi
+      if test -e $1.zs-old; then 
+        rm $1.zs-old
+      fi
+      amxa-generate-cksums
+      exit 0
+    fi
+echo "error: no *.zsync found"
+exit 1
+
