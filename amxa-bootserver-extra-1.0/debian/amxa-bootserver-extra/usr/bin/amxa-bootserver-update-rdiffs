@@ -1,0 +1,45 @@
+#!/bin/sh
+
+
+cd /opt/ltsp/images/
+
+
+if ! test -d rdiffs; then
+  mkdir rdiffs
+fi
+
+PREV=""
+for N in $(ls ltsp-amxa-*-i386.img); do
+  echo $N
+  if test -z "$PREV"; then 
+    PREV=$N
+  else
+    echo $PREV $N
+     PRE=$(echo $PREV|cut -d- -f1-3)
+#     POST=$(echo $PREV|cut -d- -f8)
+     POST="i386.rdiff"
+     FIRST=$(echo $PREV|cut -d- -f4-7)
+     SECOND=$(echo $N|cut -d- -f4-7)
+     RDIFF="${PRE}-${FIRST}--${SECOND}-${POST}"
+#    RDIFF=$(get_rdiff_filename $PREV $N)
+    echo "fertig"
+    echo "*$RDIFF*"
+    rsync -e "ssh -i /root/yourfilehere -p 443" root@hadar.amxa.ch:/home/images/www/rdiffs/$RDIFF* rdiffs/.                            
+    if ! test -e rdiffs/$RDIFF; then
+      if ! test -e $PREV.sig; then
+         echo "rdiff signature $PREV $PREV.sig"
+         rdiff signature $PREV $PREV.sig
+      fi 
+      echo "rdiff delta $PREV.sig $N rdiffs/$RDIFF"
+      rdiff delta $PREV.sig $N rdiffs/$RDIFF
+    fi
+    if ! test -e rdiffs/$RDIFF.cksum; then
+       echo "cksum rdiffs/$RDIFF >rdiffs/$RDIV.cksum"
+       cksum rdiffs/$RDIFF >rdiffs/$RDIV.cksum
+    fi
+    PREV=$N
+  fi
+done
+
+
+

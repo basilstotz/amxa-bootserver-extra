@@ -7,8 +7,10 @@ fi
 
 if ! amxa-rdiff-image $1; then
   if ! amxa-zsync-image $1; then
-    if ! amxa-http-image $1; then
-      exit 1
+    if ! amxa-rsync-image $1; then
+      if ! amxa-http-image $1; then
+        exit 1
+      fi
     fi
   fi
 fi
