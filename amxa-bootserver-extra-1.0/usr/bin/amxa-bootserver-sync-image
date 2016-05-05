@@ -1,0 +1,78 @@
+#!/bin/sh
+
+if test -z "$1"; then
+  echo "usage: $0 workingdirectoory"
+  exit
+fi
+
+cd $1
+
+
+if ! test -d ./rdiffs; then
+ mkdir rdiffs
+fi
+if ! test -d ./meta; then
+ mkdir meta
+fi
+
+HEAD=$(find . -name "ltsp-amxa*img"|head -n1)
+
+#HEAD=$(ls -r ltsp-amxa*img|head -n1)
+RHEAD=$(ssh root@hadar.amxa.ch ls -r /home/images/www/*img|head -n1)
+RHEAD=$(basename $RHEAD)
+#ALL=$(ls -r ltsp-amxa-*-i386.img)
+#DATE=$(echo $HEAD|cut -d- -f4-7)
+
+echo "$HEAD *************** $RHEAD"
+
+
+#exit
+
+echo "updating image................................................"
+#rsync -vr --progress root@hadar.amxa.ch:/home/images/www/CKSUMS .
+#rsync -vr --progress root@hadar.amxa.ch:/home/images/www/meta/ ./meta/
+
+rsync -vr --progress  root@hadar.amxa.ch:/home/images/www/rdiffs/  ./rdiffs/
+
+
+
+if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
+   echo -n "updating image "
+   if !rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.sha256 .;then
+     exit 1
+   fi
+   if ! rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.cksum .; then
+     exit 1
+   fi
+
+   RDIFF=$(amxa-rdiff-filename $HEAD $RHEAD)
+   FOUND=0
+   for RD in $(ls ./rdiffs); do
+     if test "$RDIFF" = "$RD";then
+       FOUND=1
+     fi
+   done
+
+   if test $FOUND = "1"; then
+     echo "using rdiff ..."
+     rdiff patch ./$HEAD ./rdiffs/$RDIFF ./$RHEAD
+  else
+     echo "using rsync ..."
+     if ! test -z "$HEAD"; then
+        cp ./$HEAD ./$RHEAD
+     fi
+     rsync -vP  root@hadar.amxa.ch:/home/images/www/$RHEAD  .
+  fi
+
+  amxa-generate-cksums .
+  echo "CKSUMS updated"
+  amxa-generate-images-json . >./meta/ltsp-amxa-trusty-i386.json
+  echo "meta/ltsp-amxa-trusty-i386.json updated"
+
+  if $(sha256sum --quiet --check $RHEAD.sha256); then
+      touch ./$RHEAD.ok
+  fi  
+  echo "ok, remote is now up to date"
+else
+  echo "remote is allready up to date"
+fi

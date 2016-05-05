@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Thu, 05 May 2016 23:34:43 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu23
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu23) precise; urgency=low
+ .
+   * added puavo-bootserver-sync-image
+Checksums-Sha1: 
+ a6b657255b15571bb7fb3f91a62b9b159fc52511 654 amxa-bootserver-extra_1.0-1ubuntu23.dsc
+ 9840c9d4ce3144f09ef4b1c958043ce0322b640a 14901 amxa-bootserver-extra_1.0-1ubuntu23.tar.gz
+ a9bea3c727579721e953fe4a8c4b0b17defa5184 5770 amxa-bootserver-extra_1.0-1ubuntu23_all.deb
+Checksums-Sha256: 
+ f3e3d5a02989bc9391f26b2976b65a7ac3c27d6ca54ebe6b36b99e34185158b3 654 amxa-bootserver-extra_1.0-1ubuntu23.dsc
+ bc2b8d95c82aea7df1451990afb91d463f5b09703ae0ffd64ebe510dd3a61491 14901 amxa-bootserver-extra_1.0-1ubuntu23.tar.gz
+ c2b50a68c180c14c773a32b0c43703fe2c31a12d5384d7063ab0b12242562e2a 5770 amxa-bootserver-extra_1.0-1ubuntu23_all.deb
+Files: 
+ 4445fca9133f6dbd0d905ad9cdd8698a 654 system optional amxa-bootserver-extra_1.0-1ubuntu23.dsc
+ 59db47c42244a6ed27e6e4a94f894b6a 14901 system optional amxa-bootserver-extra_1.0-1ubuntu23.tar.gz
+ 984841fdd1b1c5353a480015918ee70c 5770 system optional amxa-bootserver-extra_1.0-1ubuntu23_all.deb

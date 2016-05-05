@@ -1,6 +1,14 @@
 #!/bin/sh
 
-cd /opt/ltsp/images/
+
+if test -z "$1"; then
+  echo "usage: $0 workingdirectory"
+  exit 1
+fi
+
+cd $1
+
+echo $PWD
 
 if test -e CKSUMS; then rm  CKSUMS;fi
 touch CKSUMS
@@ -12,9 +20,17 @@ for N in $(ls ltsp-amxa*img); do
     echo "ok"
   fi
   cat $N.cksum >>CKSUMS
+  if  ! test -e $N.sha256; then
+    echo -n "generating $N.sha256 ..."
+    sha256sum $N >$N.sha256
+    echo "ok"
+  fi
+
 done
 
 cd rdiffs
+
+echo $PWD
 
 for N in $(ls ltsp-amxa*rdiff); do
   if  ! test -e $N.cksum; then
@@ -23,6 +39,13 @@ for N in $(ls ltsp-amxa*rdiff); do
     echo "ok"
   fi
   cat $N.cksum >>../CKSUMS
+  if  ! test -e $N.sha256; then
+    echo -n "generating $N.sha256 ..."
+    cksum $N >$N.sha256
+    echo "ok"
+  fi
 done
+cp ../CKSUMS CKSUMS
+
 
 exit
