@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if test -z "$1";then
+if test -z "$1"; then
   echo "usage: $0 workingdirectory [onlyone]"
   exit 1
 fi
@@ -15,18 +15,16 @@ URL="http://images.amxa.ch"
 IMAGES=$(ls -r ltsp-amxa*i386.img)
 HEAD=$(ls -r ltsp-amxa*i386.img|head -n1)
 
-if test -n "$2";then
+if test -n "$2"; then
   UHU=$HEAD
 else
   UHU=$IMAGES
 fi
 
+# write jsonfile
 echo "{"
 echo "\"ltsp-amxa-trusty-i386\": {"
 echo "  \"images\" : ["
-
-if 
-
 #process images
 for IMG in $UHU; do
   DATE="$(echo $IMG|cut -d- -f4-7)"
@@ -58,7 +56,7 @@ for IMG in $UHU; do
          echo "                      \"$URL/$RD\""
          echo "                      ],"
          echo "                  \"version\": \"$RVERSION\""
-        echo "                }"
+         echo "                }"
       done
   echo "              ],"
   echo "     \"filename\": \"$IMG\","

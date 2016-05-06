@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu33) precise; urgency=low
+
+  * again
+
+ -- root <root@bootserver.amxa.opinys.fi>  Fri, 06 May 2016 16:57:21 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu32) precise; urgency=low
 
   * fixed again
