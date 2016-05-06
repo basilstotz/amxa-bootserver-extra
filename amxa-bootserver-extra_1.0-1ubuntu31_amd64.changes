@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 May 2016 16:49:28 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu31
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu31) precise; urgency=low
+ .
+   * fixed gen meta
+Checksums-Sha1: 
+ 5e1a459be797725e6a87fab28dc3a15640ec3774 654 amxa-bootserver-extra_1.0-1ubuntu31.dsc
+ 74c7c1f84e61fb6ec3f15f8c948714ca7d1ebefe 15851 amxa-bootserver-extra_1.0-1ubuntu31.tar.gz
+ 790f8da7a04f11c22f671cd5353081633bcb4fc4 6724 amxa-bootserver-extra_1.0-1ubuntu31_all.deb
+Checksums-Sha256: 
+ 2182c2d7a3a7c84ceeb07ca5f307a25e32ee037b8e3d28dbafe356210e88c48f 654 amxa-bootserver-extra_1.0-1ubuntu31.dsc
+ 055eb22bb372be8b8bf7a17059b808bf85ba6cb8feb5a1d5417e69be0a2feeb5 15851 amxa-bootserver-extra_1.0-1ubuntu31.tar.gz
+ 23aff54d0c4efbae9a6233bc2a1d90c5273be7b519f680d3db2a0c755d9cb730 6724 amxa-bootserver-extra_1.0-1ubuntu31_all.deb
+Files: 
+ 0a11d859b8e85d875a56e588d7fc16bf 654 system optional amxa-bootserver-extra_1.0-1ubuntu31.dsc
+ 9aada603231dd3240d4e6d1dd82426ac 15851 system optional amxa-bootserver-extra_1.0-1ubuntu31.tar.gz
+ 84756482f7c1bd4c05efd91c97911eb9 6724 system optional amxa-bootserver-extra_1.0-1ubuntu31_all.deb
