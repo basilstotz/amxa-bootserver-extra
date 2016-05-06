@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 May 2016 14:21:48 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu28
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu28) precise; urgency=low
+ .
+   * moved rsync into mail if
+Checksums-Sha1: 
+ 2f3a7cd744d8744541eea6e28a9d815511495199 654 amxa-bootserver-extra_1.0-1ubuntu28.dsc
+ 3cb2d81d25e96f9c30be19019c503dbe19c963f1 15043 amxa-bootserver-extra_1.0-1ubuntu28.tar.gz
+ 9b763de1178c2910c4add6f2a7ba7d745f8e9d58 5922 amxa-bootserver-extra_1.0-1ubuntu28_all.deb
+Checksums-Sha256: 
+ 2a61e9b7e97b81497597a3a4d06d65bbf3522b4986a76ea6846894c424e78d7d 654 amxa-bootserver-extra_1.0-1ubuntu28.dsc
+ af1d463de2c7cb9413ce80eb14459db663b1dcec200bce741d522469fc02796c 15043 amxa-bootserver-extra_1.0-1ubuntu28.tar.gz
+ 0e6e37689a2d5e4836ab53bf063841e21e8857d8823a2b387cccf16c7adf5d1a 5922 amxa-bootserver-extra_1.0-1ubuntu28_all.deb
+Files: 
+ 03d106b42f5e1e36a5c4b1be575b1895 654 system optional amxa-bootserver-extra_1.0-1ubuntu28.dsc
+ e5ec64d76f58b62458728f8f74ac879d 15043 system optional amxa-bootserver-extra_1.0-1ubuntu28.tar.gz
+ 61434f697b8f72d10db1fe70a78edd88 5922 system optional amxa-bootserver-extra_1.0-1ubuntu28_all.deb
