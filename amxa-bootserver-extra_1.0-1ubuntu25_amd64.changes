@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 06 May 2016 11:40:46 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu25
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu25) precise; urgency=low
+ .
+   * changed ssh port to 443
+Checksums-Sha1: 
+ 9981e136a151acf43865f18f484af4402cc1f1f0 654 amxa-bootserver-extra_1.0-1ubuntu25.dsc
+ 8ed5d5848d64618d29de083eafcca07f0e44f6db 15074 amxa-bootserver-extra_1.0-1ubuntu25.tar.gz
+ 31875ee02a9a718c075d036548cd67be2d89da81 5848 amxa-bootserver-extra_1.0-1ubuntu25_all.deb
+Checksums-Sha256: 
+ 10fb2711c4d2bb3817e5f6de6367571bd4b55ee616d0541aa9452420bdd4eb85 654 amxa-bootserver-extra_1.0-1ubuntu25.dsc
+ f63056e0f83f482e3bb39da9a749328c5f765a77fb4aed1dd3ce83dca32a7cb4 15074 amxa-bootserver-extra_1.0-1ubuntu25.tar.gz
+ ac157fcc3101193daa2a29d3cb8548adb7be94db5b54bcc48aec20aa7a087e81 5848 amxa-bootserver-extra_1.0-1ubuntu25_all.deb
+Files: 
+ be49b4d31ef4863a9532f593afc2b938 654 system optional amxa-bootserver-extra_1.0-1ubuntu25.dsc
+ d0cbca46b696e818656313754e9c7a22 15074 system optional amxa-bootserver-extra_1.0-1ubuntu25.tar.gz
+ a3ab81b80738a1355217ca2e46f06b5c 5848 system optional amxa-bootserver-extra_1.0-1ubuntu25_all.deb

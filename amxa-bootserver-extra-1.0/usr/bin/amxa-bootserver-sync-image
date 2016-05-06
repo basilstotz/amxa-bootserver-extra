@@ -1,5 +1,7 @@
 #!/bin/sh
 
+SSH="ssh -p443 root@hadar.amxa.ch"
+
 if test -z "$1"; then
   echo "usage: $0 workingdirectoory"
   exit
@@ -18,7 +20,7 @@ fi
 HEAD=$(find . -name "ltsp-amxa*img"|head -n1)
 
 #HEAD=$(ls -r ltsp-amxa*img|head -n1)
-RHEAD=$(ssh root@hadar.amxa.ch ls -r /home/images/www/*img|head -n1)
+RHEAD=$($SSH ls -r /home/images/www/*img|head -n1)
 RHEAD=$(basename $RHEAD)
 #ALL=$(ls -r ltsp-amxa-*-i386.img)
 #DATE=$(echo $HEAD|cut -d- -f4-7)
@@ -38,10 +40,10 @@ rsync -vr --progress  root@hadar.amxa.ch:/home/images/www/rdiffs/  ./rdiffs/
 
 if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
    echo -n "updating image "
-   if ! rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.sha256 .;then
+   if ! rsync -v --progress -e"ssh -p443" root@hadar.amxa.ch:/home/images/www/$RHEAD.sha256 .;then
      exit 1
    fi
-   if ! rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.cksum .; then
+   if ! rsync -v --progress -e"ssh -p443" root@hadar.amxa.ch:/home/images/www/$RHEAD.cksum .; then
      exit 1
    fi
 
@@ -61,7 +63,7 @@ if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
      if ! test -z "$HEAD"; then
         cp ./$HEAD ./$RHEAD
      fi
-     rsync -vP  root@hadar.amxa.ch:/home/images/www/$RHEAD  .
+     rsync -vP -e"ssh -p443"  root@hadar.amxa.ch:/home/images/www/$RHEAD  .
   fi
 
   amxa-generate-cksums .

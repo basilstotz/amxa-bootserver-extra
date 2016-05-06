@@ -1,3 +1,15 @@
+amxa-bootserver-extra (1.0-1ubuntu25) precise; urgency=low
+
+  * changed ssh port to 443
+
+ -- root <root@bootserver.amxa.opinys.fi>  Fri, 06 May 2016 11:40:46 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu24) precise; urgency=low
+
+  * fixed typo 
+
+ -- root <root@bootserver.amxa.opinys.fi>  Fri, 06 May 2016 11:29:34 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu23) precise; urgency=low
 
   * added puavo-bootserver-sync-image
