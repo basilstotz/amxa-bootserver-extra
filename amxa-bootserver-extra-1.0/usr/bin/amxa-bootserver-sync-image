@@ -38,7 +38,7 @@ rsync -vr --progress  root@hadar.amxa.ch:/home/images/www/rdiffs/  ./rdiffs/
 
 if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
    echo -n "updating image "
-   if !rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.sha256 .;then
+   if ! rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.sha256 .;then
      exit 1
    fi
    if ! rsync -v --progress root@hadar.amxa.ch:/home/images/www/$RHEAD.cksum .; then
