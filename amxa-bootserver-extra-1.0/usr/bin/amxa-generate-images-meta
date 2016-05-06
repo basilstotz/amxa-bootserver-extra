@@ -1,0 +1,79 @@
+#!/bin/sh
+
+if test -z "$1";then
+  echo "usage: $0 workingdirectory [onlyone]"
+  exit 1
+fi
+
+cd $1
+
+
+
+FIRST="0"
+URL="http://images.amxa.ch"
+
+IMAGES=$(ls -r ltsp-amxa*i386.img)
+HEAD=$(ls -r ltsp-amxa*i386.img|head -n1)
+
+if test -n "$2";then
+  UHU=$HEAD
+else
+  UHU=$IMAGES
+fi
+
+echo "{"
+echo "\"ltsp-amxa-trusty-i386\": {"
+echo "  \"images\" : ["
+
+if 
+
+#process images
+for IMG in $UHU; do
+  DATE="$(echo $IMG|cut -d- -f4-7)"
+  VERSION="$(echo $DATE|sed -e's/-//g')"
+  if test $FIRST = 0; then
+    FIRST=1
+  else
+    echo "   ,"
+  fi
+  echo "   {"
+  echo "     \"cksum\": \"$(cat $IMG.cksum|cut -d" " -f1)\","
+  echo "     \"diffs\": ["
+      # process rdiffs
+      RDIFFS="$(find rdiffs -name \*$DATE-i386.rdiff)"
+      RFIRST=0
+      for RD in $RDIFFS; do
+         RVERSION=$(basename $RD|cut -d- -f4-7|sed -e's/-//g')
+         if test $RFIRST = 0; then
+           RFIRST=1
+         else
+           echo "                ,"
+         fi
+         echo "                {"
+         echo "                  \"cksum\": \"$(cat $RD.cksum|cut -d" " -f1)\","
+         echo "                  \"filename\": \"$(basename $RD)\","
+         echo "                  \"sha256\": \"$(cat $RD.sha256|cut -d" " -f1)\","
+         echo "                  \"size\": $(cat $RD.cksum|cut -d" " -f2),"
+         echo "                  \"urls\": ["
+         echo "                      \"$URL/$RD\""
+         echo "                      ],"
+         echo "                  \"version\": \"$RVERSION\""
+        echo "                }"
+      done
+  echo "              ],"
+  echo "     \"filename\": \"$IMG\","
+  echo "     \"id\": \"$(basename $IMG .img)\","
+  echo "     \"sha256\": \"$(cat $IMG.sha256|cut -d" " -f1)\","
+  echo "     \"size\": $(cat $IMG.cksum|cut -d" " -f2),"
+  echo "     \"urls\": ["
+  echo "         \"$URL/$IMG\""
+  echo "         ],"
+  echo "     \"version\": \"$VERSION\""
+  echo "   }"
+done
+echo "  ]",
+echo "  \"architecture\": \i386\"
+echo " }"
+echo "}"
+
+

@@ -74,12 +74,15 @@ if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
 
   amxa-generate-cksums .
   echo "CKSUMS updated"
-  amxa-generate-images-json . >./meta/ltsp-amxa-trusty-i386.json
+  amxa-generate-images-meta . >./meta/ltsp-amxa-trusty-i386.json
   echo "meta/ltsp-amxa-trusty-i386.json updated"
 
   if $(sha256sum --quiet --check $RHEAD.sha256); then
       touch ./$RHEAD.ok
-  fi  
+  else
+      echo "An error occurred! Exiting..."
+      exit 1
+  fi
   echo "ok, remote is now up to date"
 else
   echo "remote is allready up to date"

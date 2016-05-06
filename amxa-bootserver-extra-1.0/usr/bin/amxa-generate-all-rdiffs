@@ -1,0 +1,14 @@
+#!/bin/sh
+
+
+cd /opt/ltsp/images/
+
+HEAD=$(ls -r ltsp-amxa-*-i386.img|head -n1)
+ALL=$(ls -r ltsp-amxa-*-i386.img)
+
+for OLD in $ALL; do
+  if ! test "$HEAD" = "$OLD"; then
+#    echo "amxa-generate-rdiff $OLD $HEAD"
+    amxa-generate-rdiff $OLD $HEAD 
+  fi
+done
