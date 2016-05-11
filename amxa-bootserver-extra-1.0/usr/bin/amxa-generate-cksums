@@ -41,7 +41,7 @@ for N in $(ls ltsp-amxa*rdiff); do
   cat $N.cksum >>../CKSUMS
   if  ! test -e $N.sha256; then
     echo -n "generating $N.sha256 ..."
-    cksum $N >$N.sha256
+    sha256sum $N >$N.sha256
     echo "ok"
   fi
 done

@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 11 May 2016 11:33:13 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu34
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu34) precise; urgency=low
+ .
+   * again
+Checksums-Sha1: 
+ bbacc58c0f3a20852da1bab27c31c1ab2a3170da 654 amxa-bootserver-extra_1.0-1ubuntu34.dsc
+ 17924dd921c2bbcc75086fa139464e4ad08cfed8 15858 amxa-bootserver-extra_1.0-1ubuntu34.tar.gz
+ 558c4615ae625d430a33adfe04955e622d7dfb7a 6774 amxa-bootserver-extra_1.0-1ubuntu34_all.deb
+Checksums-Sha256: 
+ f19776ed53746e18f4790240d3c4cff3eb94fc4b12f68e43ac8c6d0b7f80746a 654 amxa-bootserver-extra_1.0-1ubuntu34.dsc
+ 0ff1edec19783f6b36eb21cc39f19eee7cab2297c281017def340ad7f366b6ac 15858 amxa-bootserver-extra_1.0-1ubuntu34.tar.gz
+ fb330a17958a16ad28e48c0a7513babf08b13f0245e5cb462e7f789b68b30159 6774 amxa-bootserver-extra_1.0-1ubuntu34_all.deb
+Files: 
+ ed741b439d2f6e00263c34ec0effdf8d 654 system optional amxa-bootserver-extra_1.0-1ubuntu34.dsc
+ f3da52bbbe1da8b133a17e55e2131f5b 15858 system optional amxa-bootserver-extra_1.0-1ubuntu34.tar.gz
+ 3d588ff89dad281675afbd8d53aa82b8 6774 system optional amxa-bootserver-extra_1.0-1ubuntu34_all.deb

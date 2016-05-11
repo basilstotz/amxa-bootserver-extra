@@ -27,6 +27,11 @@ NEW=$2
 #     RDIFF=$(get_rdiff_filename $PREV $N)
       echo -n "$RDIFF: "
 
+while test "$(ps aux|grep "rdiff delta"|grep -v grep|wc -l)" -gt 3; do
+  echo -n "*"
+  sleep 60
+done
+echo ""
 
 if ! test -e $PREV.sig; then
    echo -n "signature "
@@ -35,14 +40,6 @@ fi
 if ! test -e $RDIR/$RDIFF; then
    echo -n "delta "
    rdiff delta $PREV.sig $NEW $RDIR/$RDIFF
-fi
-if ! test -e $RDIR/$RDIFF.cksum; then
-   echo -n "cksum "
-   cksum $RDIR/$RDIFF > $RDIR/$RDIFF.cksum
-fi
-if ! test -e $RDIR/$RDIFF.sha256; then
-   echo -n "sha256 "
-   sha256sum $RDIR/$RDIFF > $RDIR/$RDIFF.sha256
 fi
 echo "ok"
 

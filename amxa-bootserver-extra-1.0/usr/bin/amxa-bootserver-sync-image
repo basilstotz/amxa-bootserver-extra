@@ -22,9 +22,9 @@ if ! test -d ./meta; then
  mkdir meta
 fi
 
-HEAD=$(find . -name "ltsp-amxa*img"|head -n1)
+#HEAD=$(find . -name "ltsp-amxa*img"|head -n1)
 
-#HEAD=$(ls -r ltsp-amxa*img|head -n1)
+HEAD=$(ls -r ltsp-amxa*img|head -n1)
 RHEAD=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
 RHEAD=$(basename $RHEAD)
 #ALL=$(ls -r ltsp-amxa-*-i386.img)
