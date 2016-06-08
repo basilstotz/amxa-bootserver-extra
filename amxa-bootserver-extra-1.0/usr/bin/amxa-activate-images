@@ -3,6 +3,6 @@
 puavo-bootserver-generate-nbd-exports
 puavo-bootserver-update-tftpboot
 
-amxa-generate-cksums
+#amxa-generate-cksums
 
 exit

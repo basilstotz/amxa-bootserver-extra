@@ -24,11 +24,15 @@ fi
 
 #HEAD=$(find . -name "ltsp-amxa*img"|head -n1)
 
+#local
 HEAD=$(ls -r ltsp-amxa*img|head -n1)
+ALL_IMAGES=$(ls -r ltsp-amxa-*-i386.img)
+
+#remote
 RHEAD=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
 RHEAD=$(basename $RHEAD)
-#ALL=$(ls -r ltsp-amxa-*-i386.img)
 #DATE=$(echo $HEAD|cut -d- -f4-7)
+RRDIFS=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
 
 echo "$HEAD *************** $RHEAD"
 

@@ -1,0 +1,63 @@
+{
+"ltsp-amxa-trusty-i386": {
+  "images" : [
+   {                                                                                                                     
+     "cksum": "557225210",
+     "diffs": [
+                {
+                  "cksum": "1944757248",
+                  "filename": "ltsp-amxa-trusty-2016-02-07-120857--2016-06-06-155029-i386.rdiff",
+                  "sha256": "eebff4da4ca408f5115cc78255a1916b28fb47ebada354a492c1a44a25a0167a",
+                  "size": 3409641086,
+                  "urls": [
+                      "http://images.amxa.ch/rdiffs/ltsp-amxa-trusty-2016-02-07-120857--2016-06-06-155029-i386.rdiff"
+                      ],
+                  "version": "20160207120857"
+                }
+                ,
+                {
+                  "cksum": "2845935930",
+                  "filename": "ltsp-amxa-trusty-2015-12-12-222237--2016-06-06-155029-i386.rdiff",
+                  "sha256": "4d03712a3493344b6d870abe3476377a1817d35716ee3a9d95bce841c058a476",
+                  "size": 3439592829,
+                  "urls": [
+                      "http://images.amxa.ch/rdiffs/ltsp-amxa-trusty-2015-12-12-222237--2016-06-06-155029-i386.rdiff"
+                      ],
+                  "version": "20151212222237"
+                }
+                ,
+                {
+                  "cksum": "1209104616",
+                  "filename": "ltsp-amxa-trusty-2016-01-29-140936--2016-06-06-155029-i386.rdiff",
+                  "sha256": "02fdb343fd815c0d3cfa79192af064934c77d73a8cb031f69207df92bea54d9b",
+                  "size": 3174993439,
+                  "urls": [
+                      "http://images.amxa.ch/rdiffs/ltsp-amxa-trusty-2016-01-29-140936--2016-06-06-155029-i386.rdiff"
+                      ],
+                  "version": "20160129140936"
+                }
+                ,
+                {
+                  "cksum": "1122318377",
+                  "filename": "ltsp-amxa-trusty-2015-10-13-160341--2016-06-06-155029-i386.rdiff",
+                  "sha256": "fb17b5bce05c5bb04edafb88f85cc3bbe9d136af80ea2da82863e1f2cc313b0e",
+                  "size": 3674106145,
+                  "urls": [
+                      "http://images.amxa.ch/rdiffs/ltsp-amxa-trusty-2015-10-13-160341--2016-06-06-155029-i386.rdiff"
+                      ],
+                  "version": "20151013160341"
+                }
+              ],
+     "filename": "ltsp-amxa-trusty-2016-06-06-155029-i386.img",
+     "id": "ltsp-amxa-trusty-2016-06-06-155029-i386",
+     "sha256": "73be22b462058fa2e4a63ced3150e4acf7b218d54b8d02458f9af309d4987427",
+     "size": 13054410752,
+     "urls": [
+         "http://images.amxa.ch/ltsp-amxa-trusty-2016-06-06-155029-i386.img"
+         ],
+     "version": "20160606155029"
+   }
+  ],
+  "architecture": "i386"
+ }
+}

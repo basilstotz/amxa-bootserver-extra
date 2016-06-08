@@ -1,0 +1,103 @@
+#!/bin/sh
+
+if test -z "$1"; then
+  echo "usage: $0 workingdirectoory"
+  exit
+fi
+
+SSH="ssh -p443 -i /root/yourfilehere "
+HOST="root@hadar.amxa.ch"
+
+
+cd $1
+
+
+if ! test -d ./rdiffs; then
+ mkdir rdiffs
+fi
+if ! test -d ./meta; then
+ mkdir meta
+fi
+
+rsync -e"$SSH" -vr --progress $HOST:/home/images/www/meta/ ./meta/
+
+NEWIMAGE=$(cat meta/ltsp-amxa-trusty-i386.json|jq .[\"ltsp-amxa-trusty-i386\"].images[0].filename|sed 's/"//g')
+ALLRDIFFS=$(cat meta/ltsp-amxa-trusty-i386.json|jq .[\"ltsp-amxa-trusty-i386\"].images[0].diffs[].filename|sed 's/"//g')
+LOCALIMAGES=$(ls -r ltsp-amxa*i386.img)
+
+#echo $NEWIMAGE
+#echo
+#echo $ALLRDIFFS
+#echo
+#echo "**************$LOCALIMAGES**************"
+echo
+
+
+FOUND=""
+for L in $LOCALIMAGES; do
+   if test $L = $NEWIMAGE; then
+     echo "nothing to do"
+     exit 0
+   fi
+   R=$(amxa-rdiff-filename $(basename $L) $NEWIMAGE)
+   for A in $ALLRDIFFS; do
+     if test "$R" = "$A"; then
+       FOUND="$FOUND $R"
+     fi
+   done
+done
+
+#echo "*******$FOUND************"
+
+if test -z "$FOUND"; then
+  echo "warning: no rdiff found, dowload full image..."
+  rsync -e"$SSH" -vr -P $HOST:/home/images/www/$NEWIMAGE.sha256 .
+  rsync -e"$SSH" -vr -P $HOST:/home/images/www/$NEWIMAGE .
+  if sha256sum -c $NEWIMAGE.sha256; then
+     touch $NEWIMAGE.lock
+     echo "download is ok"
+     exit 0
+  else
+     echo "downlaod is not ok"
+     exit 1
+  fi
+fi
+
+OK=0
+cd ./rdiffs
+for F in $FOUND; do
+#   if rsync -e"$SSH" -vr -P $HOST:/home/images/www/rdiffs/$F* .; then
+    if true; then
+     echo "running sha256sum -c $F.sha256"
+     if sha256sum -c $F.sha256; then
+       A="$(echo $F|cut -d- -f1-7)-i386.img"
+       N="ltsp-amxa-trusty-$(echo $F|cut -d- -f9-12)-i386.img"
+       if ! test -e ../$N.lock; then
+         #patch now
+         echo "running rdiff patch ../$A $F ../$N"
+         rdiff patch ../$A $F ../$N
+         rsync -e"$SSH" -vr -P $HOST:/home/images/www/$N.sha256 ..
+         echo "running sha256sum -c $N.sha256"
+         if  (cd ..;sha256sum -c $N.sha256); then
+           rsync -e"$SSH" -vr -P $HOST:/home/images/www/CKSUMS ../CKSUMS
+           cp ../CKSUMS CKSUMS
+           touch ../$N.lock
+           echo "image downloaded and is ok"
+         else
+           ok=1
+         fi
+       fi
+     else
+       OK=1
+     fi
+   else
+     OK=1
+   fi
+done
+
+if test $OK = "1";then
+  echo "an error ocurred"
+fi
+
+exit $OK
+

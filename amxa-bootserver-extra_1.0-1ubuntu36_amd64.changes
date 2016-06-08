@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 08 Jun 2016 23:35:11 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu36
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu36) precise; urgency=low
+ .
+   * better amxa-bootserver-sync-dist
+Checksums-Sha1: 
+ f70dfc85b55269a5b148da2eeb65b434b57b10dc 654 amxa-bootserver-extra_1.0-1ubuntu36.dsc
+ 55e72112971aa4866a18de09d22f92480435b894 17289 amxa-bootserver-extra_1.0-1ubuntu36.tar.gz
+ 017399ef33b5873416cfeb51309bd93746f44fa3 8202 amxa-bootserver-extra_1.0-1ubuntu36_all.deb
+Checksums-Sha256: 
+ 52a9e5fbef02d065b5126b48e7ce9abe9881213fe48495a896709b5c23d7e681 654 amxa-bootserver-extra_1.0-1ubuntu36.dsc
+ d50f27857ca534d39b639187498f826b647ec5c507b632943c0069e2886d5fe3 17289 amxa-bootserver-extra_1.0-1ubuntu36.tar.gz
+ fcf2f9bb08195becde98ed6d06a2ab7dac848b849b047c11727e8889a12356bc 8202 amxa-bootserver-extra_1.0-1ubuntu36_all.deb
+Files: 
+ fcf2cb3d61833fd13eef2c466892b669 654 system optional amxa-bootserver-extra_1.0-1ubuntu36.dsc
+ b1e8a416e580a89a869769881c4216c4 17289 system optional amxa-bootserver-extra_1.0-1ubuntu36.tar.gz
+ f2243c76911b9b9fa06b60d4703dbf10 8202 system optional amxa-bootserver-extra_1.0-1ubuntu36_all.deb
