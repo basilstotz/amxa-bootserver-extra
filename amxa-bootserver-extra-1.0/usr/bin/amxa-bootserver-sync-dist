@@ -35,16 +35,14 @@ echo
 
 FOUND=""
 for L in $LOCALIMAGES; do
-   if test $L = $NEWIMAGE; then
-     echo "nothing to do"
-     exit 0
+   if ! test "$L" = "$NEWIMAGE"; then
+     R=$(amxa-rdiff-filename $(basename $L) $NEWIMAGE)
+     for A in $ALLRDIFFS; do
+       if test "$R" = "$A"; then
+         FOUND="$FOUND $R"
+       fi
+     done
    fi
-   R=$(amxa-rdiff-filename $(basename $L) $NEWIMAGE)
-   for A in $ALLRDIFFS; do
-     if test "$R" = "$A"; then
-       FOUND="$FOUND $R"
-     fi
-   done
 done
 
 #echo "*******$FOUND************"
