@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 15 Aug 2016 15:28:39 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu40
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu40) precise; urgency=low
+ .
+   * rdiff only for *.img.lock
+Checksums-Sha1: 
+ 707af0e4c71bb6a789c39e871ddca363a26552bb 654 amxa-bootserver-extra_1.0-1ubuntu40.dsc
+ 3de7b6818a96e323745c832fe0497e47d8ed5d32 16646 amxa-bootserver-extra_1.0-1ubuntu40.tar.gz
+ 036e436bfa3468227ac3c407a59edfee575b8f18 7602 amxa-bootserver-extra_1.0-1ubuntu40_all.deb
+Checksums-Sha256: 
+ f094633342b475bd511538f09cc36c42706818561c778a33d38020a0c34cc682 654 amxa-bootserver-extra_1.0-1ubuntu40.dsc
+ 60408277a2abf1cb87a28f29b117db2b24dd43e4625ff7c6258203677047fa18 16646 amxa-bootserver-extra_1.0-1ubuntu40.tar.gz
+ fac98845b5b8d6dd0f204873406e627031b0be6dcec97ee0ddc46b5a937a7330 7602 amxa-bootserver-extra_1.0-1ubuntu40_all.deb
+Files: 
+ 27362a43bbfaa3fb9548f689e8ae7505 654 system optional amxa-bootserver-extra_1.0-1ubuntu40.dsc
+ 3f7f976ef39770ea1465a27c0721f036 16646 system optional amxa-bootserver-extra_1.0-1ubuntu40.tar.gz
+ 38dc12d8f31927a5e4048f92b8d60245 7602 system optional amxa-bootserver-extra_1.0-1ubuntu40_all.deb

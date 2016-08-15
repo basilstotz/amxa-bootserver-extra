@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu40) precise; urgency=low
+
+  * rdiff only for *.img.lock
+
+ -- root <root@bootserver.amxa.opinys.fi>  Mon, 15 Aug 2016 15:28:39 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu39) precise; urgency=low
 
   * new amxa-bootserver-sync-image
