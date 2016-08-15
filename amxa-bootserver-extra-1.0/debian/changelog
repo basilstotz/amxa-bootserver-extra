@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu39) precise; urgency=low
+
+  * new amxa-bootserver-sync-image
+
+ -- root <root@bootserver.amxa.opinys.fi>  Mon, 15 Aug 2016 14:00:42 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu38) precise; urgency=low
 
   * handle exiting images

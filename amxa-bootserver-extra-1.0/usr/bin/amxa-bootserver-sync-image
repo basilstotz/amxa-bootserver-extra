@@ -43,10 +43,13 @@ echo "updating image................................................"
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/CKSUMS .
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/meta/ ./meta/
 
+if test "$HEAD" = "$RHEAD"; then
+  echo "same image, exiting ..."
+  exit 0
+fi
 
 
-
-if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
+if ! test  -e $RHEAD.ok ; then
    echo -n "updating image "
    rsync -vr --progress -e"$SSH"  $HOST:/home/images/www/rdiffs/  ./rdiffs/
 
@@ -60,6 +63,7 @@ if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
    RDIFF=$(amxa-rdiff-filename $HEAD $RHEAD)
    FOUND=0
    for RD in $(ls ./rdiffs); do
+     RD=$(basename $RD)
      if test "$RDIFF" = "$RD";then
        FOUND=1
      fi
@@ -76,10 +80,13 @@ if ! test "$RHEAD" = "$HEAD" -a -e $HEAD.ok ; then
      rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
   fi
 
+  amxa-generate-all-rdiffs 
+
   amxa-generate-cksums .
   echo "CKSUMS updated"
-  amxa-generate-images-meta . >./meta/ltsp-amxa-trusty-i386.json
+  amxa-generate-images-meta . one >./meta/ltsp-amxa-trusty-i386.json
   echo "meta/ltsp-amxa-trusty-i386.json updated"
+  
 
   if $(sha256sum --quiet --check $RHEAD.sha256); then
       touch ./$RHEAD.ok
