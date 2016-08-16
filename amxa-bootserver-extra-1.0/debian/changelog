@@ -1,3 +1,15 @@
+amxa-bootserver-extra (1.0-1ubuntu43) precise; urgency=low
+
+  * added postfixe: .active
+
+ -- root <root@bootserver.amxa.opinys.fi>  Wed, 17 Aug 2016 01:06:12 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu42) precise; urgency=low
+
+  * added --> zsync --> rsync
+
+ -- root <root@bootserver.amxa.opinys.fi>  Tue, 16 Aug 2016 12:07:37 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu41) precise; urgency=low
 
   * fix

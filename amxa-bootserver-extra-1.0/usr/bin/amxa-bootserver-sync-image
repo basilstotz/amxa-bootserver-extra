@@ -39,11 +39,11 @@ echo "$HEAD *************** $RHEAD"
 
 #exit
 
-echo "updating image................................................"
+#echo "updating image................................................"
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/CKSUMS .
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/meta/ ./meta/
 
-if test "$HEAD" = "$RHEAD"; then
+if test "$HEAD" = "$RHEAD" -a -e $HEAD.ok; then
   echo "same image, exiting ..."
   exit 0
 fi
@@ -73,11 +73,15 @@ if ! test  -e $RHEAD.ok ; then
      echo "using rdiff ..."
      rdiff patch ./$HEAD ./rdiffs/$RDIFF ./$RHEAD
   else
-     echo "using rsync ..."
-     if ! test -e "$RHEAD"; then
-        cp ./$HEAD ./$RHEAD
-     fi
-     rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
+     echo "using zsync ..."
+     if ! zsync -i $HEAD http://images.amxa.ch/$RHEAD.zsync; then
+         echo "now trying rsnc"
+         if ! test -e "$RHEAD"; then
+           echo "copy $HEAD to $RHEAD"
+           cp ./$HEAD ./$RHEAD
+        fi
+        rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
+    fi
   fi
 echo "amxa-generate-all-rdiffs"
   amxa-generate-all-rdiffs 
@@ -87,8 +91,9 @@ echo "amxa-generate-cksums ."
   amxa-generate-images-meta . one >./meta/ltsp-amxa-trusty-i386.json
   echo "meta/ltsp-amxa-trusty-i386.json updated"
   
-
+echo "verify image with sha256sum"
   if $(sha256sum --quiet --check $RHEAD.sha256); then
+      touch $RHEAD.lock
       touch ./$RHEAD.ok
   else
       echo "An error occurred! Exiting..."

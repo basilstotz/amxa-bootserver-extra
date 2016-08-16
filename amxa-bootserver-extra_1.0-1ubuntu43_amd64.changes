@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 17 Aug 2016 01:06:12 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu43
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu43) precise; urgency=low
+ .
+   * added postfixe: .active
+Checksums-Sha1: 
+ 27a022de931c0a8a11a820d891ca6fae6634ca1b 654 amxa-bootserver-extra_1.0-1ubuntu43.dsc
+ b543a15a83c0d6e28df6b1066e070aefffa17616 16775 amxa-bootserver-extra_1.0-1ubuntu43.tar.gz
+ d95a22edf5e7e90ac60cf0482f596c7d33e581ce 7744 amxa-bootserver-extra_1.0-1ubuntu43_all.deb
+Checksums-Sha256: 
+ c651868711b4306d6ee81142e55620bc7abbe43245fbbdbb9e3a4ebb47190676 654 amxa-bootserver-extra_1.0-1ubuntu43.dsc
+ 4386858fc7c6bf86516fb8963828a1886556c4cfbdf0796bd72cd32708b91a07 16775 amxa-bootserver-extra_1.0-1ubuntu43.tar.gz
+ bdb5787cdc1fd71bb8f6f1f84e5bd5d5ea7f7a403cdd5fec5bcee51144f5e713 7744 amxa-bootserver-extra_1.0-1ubuntu43_all.deb
+Files: 
+ 95ef4cd4c8df8b87ecccdc6fec448353 654 system optional amxa-bootserver-extra_1.0-1ubuntu43.dsc
+ b867913f88840d75048c988839206f50 16775 system optional amxa-bootserver-extra_1.0-1ubuntu43.tar.gz
+ cecd6bb72662f3b38163be706a19d6be 7744 system optional amxa-bootserver-extra_1.0-1ubuntu43_all.deb
