@@ -74,14 +74,14 @@ if ! test  -e $RHEAD.ok ; then
      rdiff patch ./$HEAD ./rdiffs/$RDIFF ./$RHEAD
   else
      echo "using rsync ..."
-     if ! test -z "$HEAD"; then
+     if ! test -e "$RHEAD"; then
         cp ./$HEAD ./$RHEAD
      fi
      rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
   fi
-
+echo "amxa-generate-all-rdiffs"
   amxa-generate-all-rdiffs 
-
+echo "amxa-generate-cksums ."
   amxa-generate-cksums .
   echo "CKSUMS updated"
   amxa-generate-images-meta . one >./meta/ltsp-amxa-trusty-i386.json
