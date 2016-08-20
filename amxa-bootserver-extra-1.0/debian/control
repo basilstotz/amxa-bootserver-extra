@@ -10,7 +10,7 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: amxa-bootserver-extra
 Architecture: all 
-Depends: ${misc:Depends},rdiff,vde2,autossh
+Depends: ${misc:Depends},rdiff,vde2,autossh,zsync
 Description: Add special commands for amxa bootservers
  Add special commands for amxa bootservers
 

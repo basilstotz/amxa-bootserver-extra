@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 20 Aug 2016 11:24:55 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu44
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu44) precise; urgency=low
+ .
+   * added dependency: zsync
+Checksums-Sha1: 
+ f8a19b72678cf3557e8eec5981088b38b297f43c 654 amxa-bootserver-extra_1.0-1ubuntu44.dsc
+ c5c9eb7797b294c55b0c130bbdac6a9c50ca641e 16748 amxa-bootserver-extra_1.0-1ubuntu44.tar.gz
+ 84296bba48be3fe8c961623cbc544c67cf4a7e4c 7696 amxa-bootserver-extra_1.0-1ubuntu44_all.deb
+Checksums-Sha256: 
+ 49531990a78d42faf9592d831cce898585045d222df4ac03a92b640453044f9c 654 amxa-bootserver-extra_1.0-1ubuntu44.dsc
+ 1366567ea8b595ff18f637ac1d9b20a5298d3c4587ba1fef787a6e46afcb755c 16748 amxa-bootserver-extra_1.0-1ubuntu44.tar.gz
+ 5d445349493a222af30e3aafd9bceeb54e34753085a7d0e41efabc96b1dfa274 7696 amxa-bootserver-extra_1.0-1ubuntu44_all.deb
+Files: 
+ 61316c851a86397c501b2d2eb927b086 654 system optional amxa-bootserver-extra_1.0-1ubuntu44.dsc
+ 26a6487729197cf44ed7b67291f372d2 16748 system optional amxa-bootserver-extra_1.0-1ubuntu44.tar.gz
+ 29cb9c2218a5401071fb43838083b334 7696 system optional amxa-bootserver-extra_1.0-1ubuntu44_all.deb
