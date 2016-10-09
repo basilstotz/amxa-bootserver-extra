@@ -83,8 +83,15 @@ if ! test  -e $RHEAD.ok ; then
         rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
     fi
   fi
+echo "amxa-generate-all-rdiffs"
+  amxa-generate-all-rdiffs 
+echo "amxa-generate-cksums ."
+  amxa-generate-cksums .
+  echo "CKSUMS updated"
+  amxa-generate-images-meta . one >./meta/ltsp-amxa-trusty-i386.json
+  echo "meta/ltsp-amxa-trusty-i386.json updated"
   
-  echo "verify image with sha256sum"
+echo "verify image with sha256sum"
   if $(sha256sum --quiet --check $RHEAD.sha256); then
       touch $RHEAD.lock
       touch ./$RHEAD.ok

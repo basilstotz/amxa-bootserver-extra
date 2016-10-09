@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+
+
+  if test -z "$1"; then
+    echo "usage: $0 workingdirectoory"
+    exit
+  fi
+
+
+  cd $1
+
+
+  echo "amxa-generate-all-rdiffs"
+  amxa-generate-all-rdiffs 
+  echo "amxa-generate-cksums ."
+  amxa-generate-cksums .
+  echo "CKSUMS updated"
+  amxa-generate-images-meta . one >./meta/ltsp-amxa-trusty-i386.json
+  echo "meta/ltsp-amxa-trusty-i386.json updated"
+  
+  exit 0
+
