@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu45) precise; urgency=low
+
+  * renamed some files and a new function
+
+ -- root <root@bootserver.amxa.opinys.fi>  Sun, 09 Oct 2016 19:25:57 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu44) precise; urgency=low
 
   * added dependency: zsync
