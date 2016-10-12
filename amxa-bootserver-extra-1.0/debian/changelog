@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu50) precise; urgency=low
+
+  * added sleep
+
+ -- root <root@bootserver.amxa.opinys.fi>  Wed, 12 Oct 2016 12:57:30 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu49) precise; urgency=low
 
   * build rdiffs automaticaly from all img with refs

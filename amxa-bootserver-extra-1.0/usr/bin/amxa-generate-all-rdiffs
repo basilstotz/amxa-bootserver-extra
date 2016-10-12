@@ -6,17 +6,18 @@ cd /opt/ltsp/images/
 HEAD=$(ls -r ltsp-amxa-*-i386.img|head -n1)
 ALL=$(ls -r ltsp-amxa-*-i386.img)
 
-ACTIVE=$(opinsys-img-stat |grep ltsp-amxa|cut -b1-40,81-85|grep yes|cut -b1-39)
+REFERENCED=$(opinsys-img-stat |grep ltsp-amxa|cut -b1-40,81-85|grep yes|cut -b1-39)
 
 
 for OLD in $ALL; do
   if ! test "$HEAD" = "$OLD"; then
-     if echo "$ACTIVE"|grep -q $(basename $OLD .img); then
+     if echo "$REFERENCED"|grep -q $(basename $OLD .img); then
        while test "$(ps aux|grep 'rdiff delta'|grep -v grep|wc -l)" -gt 3; do
           #echo -n "*"
           sleep 60
        done
        amxa-generate-rdiff $OLD $HEAD &
+       sleep 2
      fi 
   fi
 done
