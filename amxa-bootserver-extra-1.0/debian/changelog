@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu47) precise; urgency=low
+
+  * amxa-generate-all-diffs now with parallel processing
+
+ -- root <root@bootserver.amxa.opinys.fi>  Wed, 12 Oct 2016 11:27:01 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu46) precise; urgency=low
 
   * fixed permissions

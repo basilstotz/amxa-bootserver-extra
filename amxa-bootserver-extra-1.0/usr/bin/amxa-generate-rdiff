@@ -27,11 +27,6 @@ NEW=$2
 #     RDIFF=$(get_rdiff_filename $PREV $N)
       echo -n "$RDIFF: "
 
-while test "$(ps aux|grep "rdiff delta"|grep -v grep|wc -l)" -gt 3; do
-  echo -n "*"
-  sleep 60
-done
-echo ""
 
 if ! test -e $PREV.sig; then
    echo -n "signature "

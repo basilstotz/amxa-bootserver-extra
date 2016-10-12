@@ -9,7 +9,22 @@ ALL=$(ls -r ltsp-amxa-*-i386.img)
 for OLD in $ALL; do
   if ! test "$HEAD" = "$OLD"; then
      if test -e $OLD.active; then
-        amxa-generate-rdiff $OLD $HEAD
+       while test "$(ps aux|grep "rdiff delta"|grep -v grep|wc -l)" -gt 3; do
+          #echo -n "*"
+          sleep 60
+       done
+       amxa-generate-rdiff $OLD $HEAD &
      fi 
   fi
 done
+
+sleep 5
+
+while test "$(ps aux|grep "rdiff delta"|grep -v grep|wc -l)" -gt 0; do
+  #echo -n "*"
+  sleep 60
+done
+
+echo "info: all rdiffs are ready"
+
+exit 0
