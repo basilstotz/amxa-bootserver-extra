@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd /opt/ltsp/images/
+
+amxa-bootserver-sync-image .
+amxa-bootserver-make-rdiffs .
+
+exit

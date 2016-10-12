@@ -1,3 +1,15 @@
+amxa-bootserver-extra (1.0-1ubuntu49) precise; urgency=low
+
+  * build rdiffs automaticaly from all img with refs
+
+ -- root <root@bootserver.amxa.opinys.fi>  Wed, 12 Oct 2016 12:28:58 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu48) precise; urgency=low
+
+  * new build with amxa-bootserver-update-images
+
+ -- root <root@bootserver.amxa.opinys.fi>  Wed, 12 Oct 2016 11:59:42 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu47) precise; urgency=low
 
   * amxa-generate-all-diffs now with parallel processing

@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 12 Oct 2016 12:28:58 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu49
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu49) precise; urgency=low
+ .
+   * build rdiffs automaticaly from all img with refs
+Checksums-Sha1: 
+ 9903c5ebd086bf3d9b86d57c5e634aae49923058 654 amxa-bootserver-extra_1.0-1ubuntu49.dsc
+ 14f14719502fa06ef584b3cc48557c4ea5b39e50 17005 amxa-bootserver-extra_1.0-1ubuntu49.tar.gz
+ e53eab000c908f64e193b465700cb8a587c4c666 8122 amxa-bootserver-extra_1.0-1ubuntu49_all.deb
+Checksums-Sha256: 
+ f2942e59e4bb573905b34b03f7a7c39f7182babfd6d684caa56d17a44cc5b9c9 654 amxa-bootserver-extra_1.0-1ubuntu49.dsc
+ 0683fbf7fe508bb5192169274a89b0c5e0843dd1a61cf5c9af5404304a2905b8 17005 amxa-bootserver-extra_1.0-1ubuntu49.tar.gz
+ f6fa6f18cfec7c8f620f235c711dcd90083c700bb438d0390fb65ac2b17f2abc 8122 amxa-bootserver-extra_1.0-1ubuntu49_all.deb
+Files: 
+ 5c505897ecedc5792ee43775f3237fee 654 system optional amxa-bootserver-extra_1.0-1ubuntu49.dsc
+ 88a2c0ebaf9b12f4a09a5537005caef8 17005 system optional amxa-bootserver-extra_1.0-1ubuntu49.tar.gz
+ 80385fbb461b8634f9004e1fae6a2a5b 8122 system optional amxa-bootserver-extra_1.0-1ubuntu49_all.deb
