@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu51) precise; urgency=low
+
+  * use: /usr/lib/opinsys-bootserver/list-referenced-images
+
+ -- root <root@bootserver.amxa.opinys.fi>  Fri, 14 Oct 2016 15:45:30 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu50) precise; urgency=low
 
   * added sleep

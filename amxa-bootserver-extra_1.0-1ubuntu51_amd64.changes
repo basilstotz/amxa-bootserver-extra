@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Fri, 14 Oct 2016 15:45:30 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu51
+Distribution: precise
+Urgency: low
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: root <root@bootserver.amxa.opinys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu51) precise; urgency=low
+ .
+   * use: /usr/lib/opinsys-bootserver/list-referenced-images
+Checksums-Sha1: 
+ 7002a9947c9117cca3afa6f408104ba9334a1ede 654 amxa-bootserver-extra_1.0-1ubuntu51.dsc
+ f9fb10c527de97692d152918395b2c113c959e4c 17142 amxa-bootserver-extra_1.0-1ubuntu51.tar.gz
+ 5ee563feee27f665e9ecf340a9be19a34fe0b2a1 8206 amxa-bootserver-extra_1.0-1ubuntu51_all.deb
+Checksums-Sha256: 
+ 5a72546d5944a9624e3d0968f0ee56a08674970e96d60167bd88a8a1d60aa9d2 654 amxa-bootserver-extra_1.0-1ubuntu51.dsc
+ 6699664312b59112376b33042e2dbb198c52e13f9b06737b759a9a7aaae27f24 17142 amxa-bootserver-extra_1.0-1ubuntu51.tar.gz
+ 4ba96b596e1aeb00d98cbb7420e1d070f383b1816cb0de5a8ff8995e59d25be3 8206 amxa-bootserver-extra_1.0-1ubuntu51_all.deb
+Files: 
+ e9c66580c5c99f75ca5240173da5ad00 654 system optional amxa-bootserver-extra_1.0-1ubuntu51.dsc
+ 8581640682a70e8ef2e56462cedc16e6 17142 system optional amxa-bootserver-extra_1.0-1ubuntu51.tar.gz
+ 0fb73ac4d222cd845541def360380323 8206 system optional amxa-bootserver-extra_1.0-1ubuntu51_all.deb

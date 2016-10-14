@@ -6,8 +6,8 @@ cd /opt/ltsp/images/
 HEAD=$(ls -r ltsp-amxa-*-i386.img|head -n1)
 ALL=$(ls -r ltsp-amxa-*-i386.img)
 
-REFERENCED=$(opinsys-img-stat |grep ltsp-amxa|cut -b1-40,81-85|grep yes|cut -b1-39)
-
+#REFERENCED=$(opinsys-img-stat |grep ltsp-amxa|cut -b1-40,81-85|grep yes|cut -b1-39)
+REFERENCED=$(/usr/lib/opinsys-bootserver/list-referenced-images|grep ltsp-amxa)
 
 for OLD in $ALL; do
   if ! test "$HEAD" = "$OLD"; then
