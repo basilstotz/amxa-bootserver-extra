@@ -9,7 +9,7 @@ if test -z "$1"; then
 fi
 
 SSH="ssh -p443 -i/root/yourfilehere "
-HOST="root@deneb.amxa.ch"
+HOST="root@images.amxa.ch"
 
 
 cd $1
