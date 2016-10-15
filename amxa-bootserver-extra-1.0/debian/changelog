@@ -1,3 +1,15 @@
+amxa-bootserver-extra (1.0-1ubuntu53) precise; urgency=low
+
+  * changed imageserver to deneb.amxa.ch
+
+ -- root <root@bootserver.amxa.opinys.fi>  Sat, 15 Oct 2016 13:07:27 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu52) precise; urgency=low
+
+  * changed 
+
+ -- root <root@bootserver.amxa.opinys.fi>  Fri, 14 Oct 2016 16:06:44 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu51) precise; urgency=low
 
   * use: /usr/lib/opinsys-bootserver/list-referenced-images
