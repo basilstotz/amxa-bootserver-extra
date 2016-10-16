@@ -5,7 +5,7 @@
 
 if test -z "$1"; then
   echo "usage: $0 workingdirectoory"
-  exit
+  exit 1
 fi
 
 SSH="ssh -p443 -i/root/yourfilehere "
@@ -37,7 +37,7 @@ RRDIFS=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
 echo "$HEAD *************** $RHEAD"
 
 
-#exit
+# exit
 
 #echo "updating image................................................"
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/CKSUMS .
@@ -45,7 +45,7 @@ echo "$HEAD *************** $RHEAD"
 
 if test "$HEAD" = "$RHEAD" -a -e $HEAD.ok; then
   echo "same image, exiting ..."
-  exit 0
+  exit 2
 fi
 
 
@@ -93,6 +93,8 @@ if ! test  -e $RHEAD.ok ; then
       exit 1
   fi
   echo "ok, remote is now up to date"
+  exit 0
 else
   echo "remote is allready up to date"
+  exit 2
 fi

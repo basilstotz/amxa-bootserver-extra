@@ -2,24 +2,26 @@
 
 cd /opt/ltsp/images/
 
-if wget -o /dev/null http://images.amxa.ch/NOTOK; then
+if wget -o /dev/null https://images.amxa.ch/NOTOK; then
   echo "image server is updating. Try next time!"
-  exit
+  exit 1
 fi
 if test -e /var/run/amxa-bootserver-update-image.pid; then
   echo "last update still running. Try next time!"
-  exit
+  exit 1
 else
   touch /var/run/amxa-bootserver-update-image.pid
 fi
 
 
 amxa-bootserver-sync-image .
-amxa-bootserver-make-rdiffs .
+if test $? -eq 0; then
+  amxa-bootserver-make-rdiffs .
+fi
 
 if test -e /var/run/amxa-bootserver-update-image.pid; then
   rm /var/run/amxa-bootserver-update-image.pid
 fi
 
 
-exit
+exit 0
