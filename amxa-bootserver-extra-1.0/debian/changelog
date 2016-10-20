@@ -1,3 +1,21 @@
+amxa-bootserver-extra (1.0-1ubuntu59) precise; urgency=low
+
+  * fixed postinst
+
+ -- root <root@bootserver.amxa.opinys.fi>  Thu, 20 Oct 2016 13:26:23 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu58) precise; urgency=low
+
+  * hardwired series "ltsp-amxa-trusty-i386"
+
+ -- root <root@bootserver.amxa.opinys.fi>  Thu, 20 Oct 2016 13:04:45 +0200
+
+amxa-bootserver-extra (1.0-1ubuntu57) precise; urgency=low
+
+  * fixed bug
+
+ -- root <root@bootserver.amxa.opinys.fi>  Thu, 20 Oct 2016 12:18:57 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu56) precise; urgency=low
 
   * added patches for puavo-bootserver-sync-images

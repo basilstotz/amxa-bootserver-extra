@@ -8,12 +8,13 @@ if test -z "$1"; then
   exit 1
 fi
 
-SSH="ssh -p443 -i/root/yourfilehere "
-HOST="root@images.amxa.ch"
+#SSH="ssh -p443 -i/root/yourfilehere "
+#HOST="root@images.amxa.ch"
 
 
 cd $1
 
+SERVER="images.amxa.ch"
 
 if ! test -d ./rdiffs; then
  mkdir rdiffs
@@ -26,19 +27,22 @@ fi
 
 #local
 HEAD=$(ls -r ltsp-amxa*img|head -n1)
-ALL_IMAGES=$(ls -r ltsp-amxa-*-i386.img)
+#ALL_IMAGES=$(ls -r ltsp-amxa-*-i386.img)
 
 #remote
 #RHEAD=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
+<<<<<<< HEAD
 RHEAD=$(wget - https://images.amxa.ch|cut -d\  -f1)
+=======
+RHEAD=$(wget -O - https://$SERVER/content.html 2>/dev/null|head -n1)
+>>>>>>> bcc20c2ff4d6c574cfe1aff8b53ead82b37c0cee
 RHEAD=$(basename $RHEAD)
-#DATE=$(echo $HEAD|cut -d- -f4-7)
-RRDIFS=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
 
-echo "$HEAD *************** $RHEAD"
+echo "++++$HEAD***************$RHEAD+++++"
+echo 
 
 
-# exit
+
 
 #echo "updating image................................................"
 #rsync -vr --progress root@hadar.amxa.ch:/home/images/www/CKSUMS .
@@ -51,15 +55,32 @@ fi
 
 
 if ! test  -e $RHEAD.ok ; then
-   echo -n "updating image "
-   rsync -vr --progress -e"$SSH"  $HOST:/home/images/www/rdiffs/  ./rdiffs/
+    echo -n "updating image "
 
-   if ! rsync -v --progress -e"$SSH" $HOST:/home/images/www/$RHEAD.sha256 .;then
-     exit 1
-   fi
-   if ! rsync -v --progress -e"$SSH" $HOST:/home/images/www/$RHEAD.cksum .; then
-     exit 1
-   fi
+    wget -O $RHEAD.rdiffs https://$SERVER/$RHEAD.rdiffs
+    DIFFS=$(cat $RHEAD.rdiffs)
+
+    cd rdiffs
+    echo "DIFFS: $DIFFS"
+    for UHU in $DIFFS; do
+      wget -O $UHU.sha256 https://$SERVER/rdiffs/$UHU.sha256
+      wget -O $UHU.cksum https://$SERVER/rdiffs/$UHU.cksum
+      if ! test -e $UHU; then
+         if wget -c -O $UHU.tmp https://$SERVER/rdiffs/$UHU; then
+            mv $UHU.tmp $UHU
+         fi
+      fi
+    done
+    cd ..
+    wget -O $RHEAD.sha256 https://$SERVER/$RHEAD.sha256
+    wget -O $RHEAD.cksum https://$SERVER/$RHEAD.cksum
+#   rsync -vr --progress -e"$SSH"  $HOST:/home/images/www/rdiffs/  ./rdiffs/
+#   if ! rsync -v --progress -e"$SSH" $HOST:/home/images/www/$RHEAD.sha256 .;then
+#     exit 1
+#   fi
+#   if ! rsync -v --progress -e"$SSH" $HOST:/home/images/www/$RHEAD.cksum .; then
+#     exit 1
+#   fi
 
    RDIFF=$(amxa-rdiff-filename $HEAD $RHEAD)
    FOUND=0
@@ -70,18 +91,20 @@ if ! test  -e $RHEAD.ok ; then
      fi
    done
 
+
    if test $FOUND = "1"; then
      echo "using rdiff ..."
      rdiff patch ./$HEAD ./rdiffs/$RDIFF ./$RHEAD
   else
      echo "using zsync ..."
-     if ! zsync -i $HEAD http://images.amxa.ch/$RHEAD.zsync; then
+     if ! zsync -i $HEAD http://$SERVER/$RHEAD.zsync; then
          echo "now trying rsnc"
          if ! test -e "$RHEAD"; then
            echo "copy $HEAD to $RHEAD"
            cp ./$HEAD ./$RHEAD
         fi
-        rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
+#        rsync -vP -e"$SSH"  $HOST:/home/images/www/$RHEAD  .
+         wget -c -O $RHEAD https://$SERVER/$RHEAD
     fi
   fi
   
