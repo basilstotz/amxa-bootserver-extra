@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu56) precise; urgency=low
+
+  * added patches for puavo-bootserver-sync-images
+
+ -- root <root@bootserver.amxa.opinys.fi>  Thu, 20 Oct 2016 12:08:47 +0200
+
 amxa-bootserver-extra (1.0-1ubuntu55) precise; urgency=low
 
   * new build

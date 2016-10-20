@@ -29,7 +29,8 @@ HEAD=$(ls -r ltsp-amxa*img|head -n1)
 ALL_IMAGES=$(ls -r ltsp-amxa-*-i386.img)
 
 #remote
-RHEAD=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
+#RHEAD=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
+RHEAD=$(wget - https://images.amxa.ch|cut -d\  -f1)
 RHEAD=$(basename $RHEAD)
 #DATE=$(echo $HEAD|cut -d- -f4-7)
 RRDIFS=$($SSH $HOST ls -r "/home/images/www/*img|head -n1")
