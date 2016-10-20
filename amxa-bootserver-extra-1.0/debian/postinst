@@ -22,6 +22,7 @@ case "$1" in
     configure)
       #patch puavo-bootserver-sync-images
       if test -e /usr/sbin/puavo-bootserver-sync-images; then
+        sed -i /usr/sbin/puavo-bootserver-sync-images -e's/uri = URI.parse(url)$/uri = URI.parse(url)\nuri.port=443\n/g'
         sed -i /usr/sbin/puavo-bootserver-sync-images -e's/http.ca_file = .*$//g'
         sed -i /usr/sbin/puavo-bootserver-sync-images -e's/http.verify_mode = OpenSSL::SSL::VERIFY_PEER$//g'
       fi
