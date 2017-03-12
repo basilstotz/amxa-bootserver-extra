@@ -1,3 +1,9 @@
+amxa-bootserver-extra (1.0-1ubuntu61) precise; urgency=low
+
+  * general cleanup
+
+ -- root <root@bootserver.amxa.opinys.fi>  Sun, 12 Mar 2017 16:08:02 +0100
+
 amxa-bootserver-extra (1.0-1ubuntu60) precise; urgency=low
 
   * fixed postinst
