@@ -1,0 +1,71 @@
+#!/bin/sh
+
+parse_line(){    # $LINE
+    #echo $# $@
+    OUT=""
+    ANZ=$((  $# / 2 ))
+    for N in $(seq $# -2 2); do
+       #echo $N
+       VAL=$(echo $LINE|cut -d\   -f$N )
+       OUT="$OUT $VAL"
+    done
+    #echo "%%%%%%% $ANZ $OUT"
+} 
+
+output_config() {
+    echo "graph_title Laptop Update Status"
+    echo "all.label Alle"
+    echo "1.label 1"
+    echo "2.label 2"
+    echo "3.label 3"
+    echo "4.label 4"
+    echo "5.label 5"
+
+}
+
+output_values() {
+    ALL=0
+    LINE=$(tail -n1 /var/log/update-status.log)
+    parse_line $LINE
+
+   
+    for I in $(seq $ANZ); do
+      NUM=$(echo $OUT|cut -d\  -f$I)
+      ALL=$(( $ALL + $NUM )) 
+      printf "$I.value %d\n" $NUM
+    done
+
+    for I in $(seq $(( $ANZ + 1 )) 5); do
+      printf "$I.value %d\n" 0
+    done
+
+
+    printf "all.value %d\n" $ALL
+}
+
+
+output_usage() {
+    printf >&2 "%s - munin plugin to graph Laptop Update Status\n" ${0##*/}
+    printf >&2 "Usage: %s [config]\n" ${0##*/}
+}
+
+case $# in
+    0)
+        output_values
+        ;;
+    1)
+        case $1 in
+            config)
+                output_config
+                ;;
+            *)
+                output_usage
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        output_usage
+        exit 1
+        ;;
+esac

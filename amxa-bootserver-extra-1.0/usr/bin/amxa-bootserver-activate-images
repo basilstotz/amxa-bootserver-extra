@@ -1,8 +1,0 @@
-#!/bin/sh
-
-puavo-bootserver-generate-nbd-exports
-puavo-bootserver-update-tftpboot
-
-#amxa-generate-cksums
-
-exit

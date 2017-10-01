@@ -1,0 +1,94 @@
+#!/bin/sh
+
+FIELDS="eins zwei drei vier mehr"
+
+get_label(){ #Nummer
+       echo $FIELDS|cut -d\   -f$1
+}
+
+parse_line(){    # $LINE
+    #echo $# $@
+    OUT=""
+    ANZ=$((  $# / 2 ))
+    for N in $(seq $# -2 2); do
+       #echo $N
+       VAL=$(echo $LINE|cut -d\   -f$N )
+       OUT="$OUT $VAL"
+    done
+    #echo "%%%%%%% $ANZ $OUT"
+} 
+
+output_config() {
+    echo "graph_title Puavo Update Status"
+    echo "graph_args -l 0"
+    echo "alle.label Alle"
+    echo "eins.label 1"
+    echo "zwei.label 2"
+    echo "drei.label 3"
+    echo "vier.label 4"
+    echo "mehr.label 5+"
+    echo "alle.draw LINE1"
+    echo "eins.draw AREASTACK"
+    echo "zwei.draw AREASTACK"
+    echo "drei.draw AREASTACK"
+    echo "vier.draw AREASTACK"
+    echo "mehr.draw AREASTACK"
+
+}
+
+output_values() {
+    ALL=0
+    LINE=$(tail -n1 /var/log/update-status.log)
+    parse_line $LINE
+
+    TANZ=$ANZ
+    if test $ANZ -gt 4; then
+        TANZ=4
+    fi 
+    for I in $(seq $TANZ); do
+        NUM=$(echo $OUT|cut -d\  -f$I)
+        ALL=$(( $ALL + $NUM )) 
+        printf "%s.value %d\n" $(get_label $I) $NUM
+    done
+    for I in $(seq $(( $TANZ + 1 )) 4); do
+        printf "%s.value %d\n"  $(get_label $I) 0
+    done
+    MORE=0
+    for I in $(seq  5 $ANZ); do
+        NUM=$(echo $OUT|cut -d\  -f$I)
+        MORE=$(( $MORE + $NUM ))
+        ALL=$(( $ALL + $NUM )) 
+    done
+    printf "mehr.value %d\n" $MORE
+
+
+
+   printf "alle.value %d\n" $ALL
+}
+
+
+output_usage() {
+    printf >&2 "%s - munin plugin to graph Laptop Update Status\n" ${0##*/}
+    printf >&2 "Usage: %s [config]\n" ${0##*/}
+}
+
+case $# in
+    0)
+        output_values
+        ;;
+    1)
+        case $1 in
+            config)
+                output_config
+                ;;
+            *)
+                output_usage
+                exit 1
+                ;;
+        esac
+        ;;
+    *)
+        output_usage
+        exit 1
+        ;;
+esac
