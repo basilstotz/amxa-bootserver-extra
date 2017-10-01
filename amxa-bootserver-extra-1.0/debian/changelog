@@ -1,11 +1,12 @@
-amxa-bootserver-extra (1.0-1ubuntu67) UNRELEASED; urgency=medium
+amxa-bootserver-extra (1.0-1ubuntu68) UNRELEASED; urgency=medium
 
   * added mini update-staus plugin
   * fixed error in plugin
   * make patch on puavo-bootserver-sync-images idempotent
   * merged changes from origin
+  * fixed error in debian/control
 
- -- Stotz Basil <stotz.basil@basil-lap.basel.opinsys.fi>  Sun, 01 Oct 2017 10:44:58 +0200
+ -- Stotz Basil <stotz.basil@basil-lap.basel.opinsys.fi>  Sun, 01 Oct 2017 10:47:35 +0200
 
 amxa-bootserver-extra (1.0-1ubuntu63) precise; urgency=low
 

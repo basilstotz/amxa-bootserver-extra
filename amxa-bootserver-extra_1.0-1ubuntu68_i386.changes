@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Sun, 01 Oct 2017 10:47:35 +0200
+Source: amxa-bootserver-extra
+Binary: amxa-bootserver-extra
+Architecture: source all
+Version: 1.0-1ubuntu68
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Basil Stotz <stotz@amxa.ch>
+Changed-By: Stotz Basil <stotz.basil@basil-lap.basel.opinsys.fi>
+Description: 
+ amxa-bootserver-extra - Add special commands for amxa bootservers
+Changes: 
+ amxa-bootserver-extra (1.0-1ubuntu68) UNRELEASED; urgency=medium
+ .
+   * added mini update-staus plugin
+   * fixed error in plugin
+   * make patch on puavo-bootserver-sync-images idempotent
+   * merged changes from origin
+   * fixed error in debian/control
+Checksums-Sha1: 
+ 803391901e81d2fd91ba020a2308d3b2f522f347 654 amxa-bootserver-extra_1.0-1ubuntu68.dsc
+ 6935eb4d3c6982f2d0094f4e1ba0e422271fc21b 13550 amxa-bootserver-extra_1.0-1ubuntu68.tar.gz
+ 478667cb897e7bc0888a672c23b3619980a862c0 3678 amxa-bootserver-extra_1.0-1ubuntu68_all.deb
+Checksums-Sha256: 
+ 3829d742b4d3a24dc08bf4bdb92e9a15ceaf793cdba20ccc754b7584e8cd36dc 654 amxa-bootserver-extra_1.0-1ubuntu68.dsc
+ ea2d4ea21d1296ec799406ee2c089cc964a8a31d50bcdb6528436c8a481f5026 13550 amxa-bootserver-extra_1.0-1ubuntu68.tar.gz
+ 1222ba7132ad832c846af17cc33bf2e80bca256f1797d0efac26c1a5798f47dd 3678 amxa-bootserver-extra_1.0-1ubuntu68_all.deb
+Files: 
+ 16c32509b0a258f0d0017235f5df08f6 654 system optional amxa-bootserver-extra_1.0-1ubuntu68.dsc
+ d4d9cd87050dceade8e76df8fd61f21c 13550 system optional amxa-bootserver-extra_1.0-1ubuntu68.tar.gz
+ 9894abae523883a9ca4733471a93e6a6 3678 system optional amxa-bootserver-extra_1.0-1ubuntu68_all.deb
